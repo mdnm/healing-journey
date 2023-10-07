@@ -1,10 +1,10 @@
-import { NextResponse, NextRequest } from "next/server";
-import { headers } from "next/headers";
-import Stripe from "stripe";
-import connectMongo from "@/libs/mongoose";
 import configFile from "@/config";
-import User from "@/models/User";
 import { findCheckoutSession } from "@/libs/stripe";
+import { createClient } from "@supabase/supabase-js";
+import { headers } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
+import Stripe from "stripe";
+import User from "../../../../models/User";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2023-08-16",
@@ -17,15 +17,26 @@ const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 // By default, it'll store the user in the database
 // See more: https://shipfa.st/docs/features/payments
 export async function POST(req: NextRequest) {
-  await connectMongo();
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ) {
+    return NextResponse.json(
+      { error: "Missing env variables for Supabase" },
+      { status: 500 }
+    );
+  }
+
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  );
 
   const body = await req.text();
 
   const signature = headers().get("stripe-signature");
 
-  let data;
-  let eventType;
-  let event;
+  let event: Stripe.Event;
 
   // verify Stripe event is legit
   try {
@@ -35,42 +46,54 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: err.message }, { status: 400 });
   }
 
-  data = event.data;
-  eventType = event.type;
+  const object = event.data.object as {
+    id: string;
+    client_reference_id: string;
+  };
+  const eventType = event.type;
 
   try {
     switch (eventType) {
       case "checkout.session.completed": {
         // First payment is successful and the subscription is created | or the subscription was canceled so create new one
 
-        const session = await findCheckoutSession(data.object.id);
+        const session = await findCheckoutSession(object.id);
 
-        const customerId = session?.customer;
+        const customerId = session?.customer as string;
         const priceId = session?.line_items?.data[0]?.price.id;
-        const userId = data.object.client_reference_id;
+        const userId = object.client_reference_id;
         const plan = configFile.stripe.plans.find((p) => p.priceId === priceId);
 
         if (!plan) break;
 
         const customer = (await stripe.customers.retrieve(
-          customerId as string
+          customerId
         )) as Stripe.Customer;
 
-        let user;
+        let user: User | null = null;
 
         // Get or create the user. userId is normally pass in the checkout session (clientReferenceID) to identify the user when we get the webhook event
         if (userId) {
-          user = await User.findById(userId);
+          const query = await supabase
+            .from("users")
+            .select()
+            .eq("id", userId)
+            .single<User>();
+          user = query.data;
         } else if (customer.email) {
-          user = await User.findOne({ email: customer.email });
+          const query = await supabase
+            .from("users")
+            .select<"*", User>()
+            .eq("email", customer.email);
+          user = query.data[0];
 
           if (!user) {
-            user = await User.create({
-              email: customer.email,
-              name: customer.name,
-            });
+            const query = await supabase
+              .from("users")
+              .insert([{ email: customer.email }])
+              .single<User>();
 
-            await user.save();
+            user = query.data;
           }
         } else {
           console.error("No user found");
@@ -80,7 +103,7 @@ export async function POST(req: NextRequest) {
         // update user data (for instance add credits)
         user.priceId = priceId;
         user.customerId = customerId;
-        await user.save();
+        await supabase.from("users").update(user).eq("id", user.id);
 
         // Extra: send email with user link, product page, etc...
         // try {
@@ -100,9 +123,7 @@ export async function POST(req: NextRequest) {
 
       case "customer.subscription.updated": {
         // The customer might have changed the plan (higher or lower plan, cancel soon etc...)
-        const subscription = await stripe.subscriptions.retrieve(
-          data.object.id
-        );
+        const subscription = await stripe.subscriptions.retrieve(object.id);
         const planId = subscription?.items?.data[0]?.price?.id;
         // Do any operation here
         break;

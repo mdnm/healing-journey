@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ButtonLead from "./ButtonLead";
 
 const CTA = () => {
   return (
@@ -20,7 +21,8 @@ const CTA = () => {
             section...
           </p>
 
-          <button className="btn btn-primary btn-wide">Get ShipFast</button>
+          {/* <button className="btn btn-primary btn-wide">Get ShipFast</button> */}
+          <ButtonLead />
         </div>
       </div>
     </section>
