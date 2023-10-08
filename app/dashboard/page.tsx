@@ -22,6 +22,7 @@ export default function Dashboard() {
   const [hour, setHour] = useState<number | null>(null);
   const [rating, setRating] = useState(5);
   const [ratingReason, setRatingReason] = useState("");
+  const [hasRated, setHasRated] = useState(false);
 
   const handleReading = async () => {
     if (!date) {
@@ -62,6 +63,7 @@ export default function Dashboard() {
         reason: ratingReason,
       });
       toast.success("Seu feedback foi enviado com sucesso, obrigado!");
+      setHasRated(true);
     } catch (error) {
       console.log(error);
     } finally {
@@ -112,57 +114,61 @@ export default function Dashboard() {
           <>
             <NumerologyReading numerology={reading.numerology} />
             <EasternAstrologyReading zodiac={reading.zodiac} hour={hour} />
-            <div className="rating rating-lg">
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-primary"
-                checked={rating === 1}
-                onChange={() => setRating(1)}
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-primary"
-                checked={rating === 2}
-                onChange={() => setRating(2)}
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-primary"
-                checked={rating === 3}
-                onChange={() => setRating(3)}
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-primary"
-                checked={rating === 4}
-                onChange={() => setRating(4)}
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-primary"
-                checked={rating === 5}
-                onChange={() => setRating(5)}
-              />
-            </div>
-            <textarea
-              placeholder="O quê você mais gostou/não gostou? Essa leitura fez sentido?"
-              className="textarea textarea-bordered w-full max-w-xs"
-              onChange={(e) => setRatingReason(e.target.value)}
-            ></textarea>
-            <button
-              className="btn btn-accent text-white btn-lg"
-              onClick={() => handleRating()}
-            >
-              {isLoading && (
-                <span className="loading loading-spinner loading-xs"></span>
-              )}
-              Enviar feedback
-            </button>
+            {!hasRated && (
+              <>
+                <div className="rating rating-lg">
+                  <input
+                    type="radio"
+                    name="rating"
+                    className="mask mask-star-2 bg-primary"
+                    checked={rating === 1}
+                    onChange={() => setRating(1)}
+                  />
+                  <input
+                    type="radio"
+                    name="rating"
+                    className="mask mask-star-2 bg-primary"
+                    checked={rating === 2}
+                    onChange={() => setRating(2)}
+                  />
+                  <input
+                    type="radio"
+                    name="rating"
+                    className="mask mask-star-2 bg-primary"
+                    checked={rating === 3}
+                    onChange={() => setRating(3)}
+                  />
+                  <input
+                    type="radio"
+                    name="rating"
+                    className="mask mask-star-2 bg-primary"
+                    checked={rating === 4}
+                    onChange={() => setRating(4)}
+                  />
+                  <input
+                    type="radio"
+                    name="rating"
+                    className="mask mask-star-2 bg-primary"
+                    checked={rating === 5}
+                    onChange={() => setRating(5)}
+                  />
+                </div>
+                <textarea
+                  placeholder="O quê você mais gostou/não gostou? Essa leitura fez sentido?"
+                  className="textarea textarea-bordered w-full max-w-xs"
+                  onChange={(e) => setRatingReason(e.target.value)}
+                ></textarea>
+                <button
+                  className="btn btn-accent text-white btn-lg"
+                  onClick={() => handleRating()}
+                >
+                  {isLoading && (
+                    <span className="loading loading-spinner loading-xs"></span>
+                  )}
+                  Enviar feedback
+                </button>
+              </>
+            )}
           </>
         )}
       </section>
