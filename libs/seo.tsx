@@ -52,7 +52,7 @@ export const getSEOTags = ({
       //     height: 660,
       //   },
       // ],
-      locale: "en_US",
+      locale: "pt_BR",
       type: "website",
     },
 
@@ -62,7 +62,7 @@ export const getSEOTags = ({
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [openGraph?.image || defaults.og.image],
       card: "summary_large_image",
-      creator: "@marc_louvion",
+      creator: "@mateusdnardo",
     },
 
     // If a canonical URL is given, we add it. The metadataBase will turn the relative URL into a fully qualified URL
@@ -108,7 +108,12 @@ export const renderSchemaTags = () => {
           offers: [
             {
               "@type": "Offer",
-              price: "8.00",
+              price: "28.00",
+              priceCurrency: "BRL",
+            },
+            {
+              "@type": "Offer",
+              price: "107.00",
               priceCurrency: "BRL",
             },
           ],

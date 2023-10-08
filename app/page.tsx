@@ -9,7 +9,8 @@ import { cookies } from "next/headers";
 import { renderSchemaTags } from "../libs/seo";
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient({ cookies: () => cookieStore });
 
   const {
     data: { session },

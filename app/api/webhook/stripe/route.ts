@@ -1,7 +1,7 @@
 import configFile from "@/config";
 import { findCheckoutSession } from "@/libs/stripe";
-import { createClient } from "@supabase/supabase-js";
-import { headers } from "next/headers";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { cookies, headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import User from "../../../../models/User";
@@ -27,10 +27,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  );
+  const cookieStore = cookies();
+  const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
 
   const body = await req.text();
 

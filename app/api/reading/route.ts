@@ -52,7 +52,8 @@ export type ReadingResponseType = {
 };
 
 export async function POST(req: NextRequest) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
   const { data } = await supabase.auth.getSession();
   const { session } = data;
 

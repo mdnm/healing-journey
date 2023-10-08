@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://numerosapp.com
+
+# Sitemaps
+Sitemap: https://numerosapp.com/sitemap.xml
