@@ -12,8 +12,8 @@ const links: {
   label: string;
 }[] = [
   {
-    href: "/#learn-more",
-    label: "Estudos",
+    href: "/learn",
+    label: "Aprenda mais",
   },
   {
     href: "/#faq",
