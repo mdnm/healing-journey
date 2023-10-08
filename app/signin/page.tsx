@@ -41,7 +41,7 @@ export default function Login() {
           },
         });
 
-        toast.success("Check your emails!");
+        toast.success("Verifique seu email!");
 
         setIsDisabled(true);
       }
@@ -72,7 +72,7 @@ export default function Login() {
         </Link>
       </div>
       <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-12">
-        Sign-in to {config.appName}{" "}
+        Entrar em {config.appName}{" "}
       </h1>
 
       <div className="space-y-8 max-w-xl mx-auto">
@@ -109,11 +109,11 @@ export default function Login() {
               />
             </svg>
           )}
-          Sign-up with Google
+          Entrar com Google
         </button>
 
         <div className="divider text-xs text-base-content/50 font-medium">
-          OR
+          OU
         </div>
 
         <form
@@ -125,7 +125,7 @@ export default function Login() {
             type="email"
             value={email}
             autoComplete="email"
-            placeholder="tom@cruise.com"
+            placeholder="pythagoras@gmail.com"
             className="input input-bordered w-full placeholder:opacity-60"
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -138,7 +138,7 @@ export default function Login() {
             {isLoading && (
               <span className="loading loading-spinner loading-xs"></span>
             )}
-            Send Magic Link
+            Enviar Link Mágico
           </button>
         </form>
       </div>

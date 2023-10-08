@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import ButtonSupport from "@/components/ButtonSupport";
+import Link from "next/link";
 
 // A simple error boundary to show a nice error page if something goes wrong (Error Boundary)
 // Users can contanct support, go to the main page or try to reset/refresh to fix the error
@@ -131,7 +131,7 @@ export default function Error({
         </div>
 
         <p className="font-medium md:text-xl md:font-semibold">
-          Something went wrong 🥲
+          Algo não está certo 🥲
         </p>
 
         <p className="text-red-500">{error?.message}</p>
@@ -150,7 +150,7 @@ export default function Error({
                 clipRule="evenodd"
               />
             </svg>
-            Refresh
+            Atualizar
           </button>
           <ButtonSupport />
           <Link href="/" className="btn btn-sm">

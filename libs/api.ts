@@ -18,12 +18,12 @@ apiClient.interceptors.response.use(
 
     if (error.response?.status === 401) {
       // User not auth, ask to re login
-      toast.error("Please login");
+      toast.error("Por favor faça login");
       // Sends the user to the login page
       redirect(config.auth.loginUrl);
     } else if (error.response?.status === 403) {
       // User not authorized, must subscribe/purchase/pick a plan
-      message = "Pick a plan to use this feature";
+      message = "Escolha um plano para continuar";
     } else {
       message =
         error?.response?.data?.error || error.message || error.toString();
@@ -38,7 +38,7 @@ apiClient.interceptors.response.use(
     if (error.message) {
       toast.error(error.message);
     } else {
-      toast.error("something went wrong...");
+      toast.error("Algo deu errado...");
     }
     return Promise.reject(error);
   }

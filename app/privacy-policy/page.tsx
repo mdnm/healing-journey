@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { getSEOTags } from "@/libs/seo";
 import config from "@/config";
+import { getSEOTags } from "@/libs/seo";
+import Link from "next/link";
 
 // CHATGPT PROMPT TO GENERATE YOUR PRIVACY POLICY — replace with your own data 👇
 
@@ -26,7 +26,7 @@ import config from "@/config";
 // Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Privacy Policy | ${config.appName}`,
+  title: `Política de Privacidade | ${config.appName}`,
   canonicalUrlRelative: "/privacy-policy",
 });
 
@@ -47,61 +47,56 @@ const PrivacyPolicy = () => {
               clipRule="evenodd"
             />
           </svg>{" "}
-          Back
+          Voltar
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Privacy Policy for {config.appName}
+          Política de Privacidade de {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+          {`Atualizado Em: 8 de Outubro, 2023
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
+1. Introdução
 
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Esta política de privacidade descreve como coletamos, usamos e protegemos suas informações pessoais. Ao usar nosso site, localizado em https://numerosapp.com, você concorda com a coleta e uso de informações de acordo com esta política.
 
-1. Information We Collect
+2. Coleta de Dados do Usuário
 
-1.1 Personal Data
+Coletamos os seguintes dados pessoais para fornecer e melhorar nossos serviços:
 
-We collect the following personal information from you:
+Nome
+Email
+Data de nascimento
+Hora de nascimento
+Informações de pagamento
+3. Coleta de Dados Não Pessoais
 
-Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
+Usamos cookies da web para melhorar sua experiência de usuário e coletar dados não pessoais para fins de análise e otimização do site.
 
-1.2 Non-Personal Data
+4. Finalidade da Coleta de Dados
 
-We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
+Os dados pessoais que coletamos são usados principalmente para processamento de pedidos. Isso garante que possamos entregar nossos serviços a você de forma eficiente e eficaz.
 
-2. Purpose of Data Collection
+5. Compartilhamento de Dados
 
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
+Valorizamos sua privacidade. Não compartilhamos, vendemos ou distribuímos seus dados pessoais para terceiros.
 
-3. Data Sharing
+6. Privacidade Infantil
 
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
+Não coletamos conscientemente informações pessoais de crianças menores de 13 anos. Se você é pai ou responsável e acredita que seu filho nos forneceu informações pessoais, entre em contato conosco imediatamente.
 
-4. Children's Privacy
+7. Atualizações da Política de Privacidade
 
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+Reservamo-nos o direito de atualizar ou alterar nossa política de privacidade a qualquer momento. Quando as alterações forem feitas, os usuários serão notificados por e-mail. Seu uso contínuo de nosso site após a implementação de qualquer alteração constitui sua aceitação das mudanças.
 
-5. Updates to the Privacy Policy
+8. Informações de Contato
 
-We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
+Para quaisquer dúvidas, preocupações ou feedback sobre nossas práticas de privacidade, entre em contato conosco pelo e-mail mateus.nardo@migii.com.br.
 
-6. Contact Information
-
-If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
-
-Email: marc@shipfa.st
-
-For all other inquiries, please visit our Contact Us page on the Website.
-
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
+Agradecemos por escolher o NumEros. Estamos comprometidos em proteger sua privacidade e garantir que suas informações pessoais sejam tratadas com cuidado e respeito.`}
         </pre>
       </div>
     </main>

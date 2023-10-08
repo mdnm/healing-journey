@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
 import type { JSX } from "react";
+import { useRef, useState } from "react";
 
 // <FAQ> component is a lsit of <Item> component
 // Just import the FAQ & add your FAQ content to the const faqList arrayy below.
@@ -13,22 +13,152 @@ interface FAQItemProps {
 
 const faqList: FAQItemProps[] = [
   {
-    question: "What do I get exactly?",
-    answer: <div className="space-y-2 leading-relaxed">Loreum Ipseum</div>,
-  },
-  {
-    question: "Can I get a refund?",
+    question: "O quê é numerologia?",
     answer: (
-      <p>
-        Yes! You can request a refund within 7 days of your purchase. Reach out
-        by email.
-      </p>
+      <div className="space-y-2 leading-relaxed">
+        <p>
+          A numerologia é uma ciência oculta que estuda a influência dos números
+          em nossa vida.
+        </p>
+        <p>
+          Através de cálculos matemáticos em base na sua data de nascimento e
+          nome, é possível descobrir características da personalidade, talentos,
+          pontos fortes e fracos, desafios, habilidades, tendências,
+          oportunidades, energias opostas, etc.
+        </p>
+        <div>
+          A numerologia não é:
+          <ul className="list-disc list-inside">
+            <li>Magia</li>
+            <li>Adivinhação</li>
+            <li>Superstição</li>
+          </ul>
+        </div>
+      </div>
     ),
   },
   {
-    question: "I have another question",
+    question: "Qual numerologia é aplicada aqui?",
     answer: (
-      <div className="space-y-2 leading-relaxed">Cool, contact us by email</div>
+      <div className="space-y-2 leading-relaxed">
+        Existem diversas vertentes da numerologia, e aqui é aplicada a
+        numerologia pitagórica com modificações baseadas em estudos empíricos e
+        de outros numerólogos.
+      </div>
+    ),
+  },
+  {
+    question: "O quê é astrologia oriental?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        <p>
+          A astrologia ocidental usa o calendario solar e é baseada no zodíaco
+          tropical, que considera a posição do sol e outros astros em relação a
+          terra. Já a astrologia oriental (chinesa ou vietnamita por exemplo)
+          usa o calendario lunissolar (lua e sol) e é baseada em animais e
+          elementos do nosso planeta.
+        </p>
+
+        <p>
+          Através da sua data e hora de nascimento, é possível descobrir o seu
+          características da personalidade, talentos, pontos fortes e fracos,
+          desafios, habilidades, tendências, oportunidades, energias opostas,
+          etc.
+        </p>
+
+        <div>
+          A astrologia oriental não é:
+          <ul className="list-disc list-inside">
+            <li>Magia</li>
+            <li>Adivinhação</li>
+            <li>Superstição</li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
+    question: "Qual astrologia oriental é aplicada aqui?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        Existem diversas vertentes da astrologia oriental, e aqui é aplicada a
+        astrologia vietnamita com modificações baseadas em estudos empíricos e
+        de outros astrólogos.
+      </div>
+    ),
+  },
+  {
+    question: "Isso realmente funciona?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        <p>
+          Múltiplas energias nos afetam diariamente e nosso universo possuí
+          diversas Leis. Uma delas é a lei do livre arbítrio, que te permite
+          fazer suas próprias escolhas (e arcar com as consequências). Outra é a
+          lei do eletromagnetismo/atração/karma/etc. que diz que você atrai o
+          que você emite/é.
+        </p>
+        <p>
+          Em resumo, numerologia e astrologia são algumas ferramentas que te
+          ajudam a entender as tendencias do universo. Não é porque você nasceu
+          no dia 28 ou é um caminho de vida 28/1 que você será bilionário. Sem
+          usar sua energia (trabalhar, estudar, fazer o bem, etc) você
+          dificilmente terá sucesso contínuo.
+        </p>
+        <p>
+          A numerologia e astrologia te fazem entender suas tendencias pessoais
+          e as do universo e te ajudar a tomar decisões melhores, mas,{" "}
+          <span className="font-bold">
+            não são uma receita de bolo ou magia.
+          </span>
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "Eu preciso comprar uma leitura avançada?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        <p>
+          O objetivo desse trabalho é difundir conhecimento sobre o universo
+          para resolver problemas e melhorar a vida das pessoas.
+        </p>
+        <p>
+          Nós oferecemos uma{" "}
+          <span className="font-bold">leitura simplificada gratuitamente</span>{" "}
+          para você testar esse conhecimento antes de se aprofundar nos estudos.
+        </p>
+        <p>
+          Se aprofundando nos estudos você terá{" "}
+          <span className="font-bold">todas as informações necessárias</span>
+          para fazer uma leitura avançada por conta própria.
+        </p>
+        <p>
+          Se você não tem tempo para estudar a fundo ou está confuso com alguma
+          informação, você pode comprar uma leitura avançada para ter uma
+          explicação detalhada e personalizada.
+        </p>
+        <p>
+          O dinheiro arrecadado é usado para manter o site no ar, criar novas
+          funcionalidades, trazer mais informações e fazer marketing para que
+          mais pessoas possam se beneficiar.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "Posso pegar um reembolso?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        Sim! Você pode pedir um reembolso em até 7 dias depois da sua compra.
+        Contate-nos email.
+      </div>
+    ),
+  },
+  {
+    question: "Tenho uma dúvida que não está aqui",
+    answer: (
+      <div className="space-y-2 leading-relaxed">Legal, nos envie um email</div>
     ),
   },
 ];
@@ -95,12 +225,12 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
 
 const FAQ = () => {
   return (
-    <section className="bg-base-200" id="faq">
+    <section className="bg-white" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
         <div className="flex flex-col text-left basis-1/2">
           <p className="inline-block font-semibold text-primary mb-4">FAQ</p>
           <p className="sm:text-4xl text-3xl font-extrabold text-base-content">
-            Frequently Asked Questions
+            Perguntas Frequentes
           </p>
         </div>
 

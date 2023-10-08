@@ -1,6 +1,5 @@
-import Image from "next/image";
-import { StaticImageData } from "next/image";
 import config from "@/config";
+import Image, { StaticImageData } from "next/image";
 
 // The list of your testimonials. It needs 3 items to fill the row.
 const list: {
@@ -39,7 +38,7 @@ const Testimonial = ({ i }: { i: number }) => {
 
   return (
     <li key={i}>
-      <figure className="relative max-w-lg h-full p-6 md:p-10 bg-base-200 rounded-2xl max-md:text-sm flex flex-col">
+      <figure className="relative max-w-lg h-full p-6 md:p-10 bg-base-300 rounded-2xl max-md:text-sm flex flex-col">
         <blockquote className="relative flex-1">
           <p className="text-base-content/80 leading-relaxed">
             {testimonial.text}

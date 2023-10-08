@@ -20,48 +20,84 @@ const config = {
     plans: [
       {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
-        priceId:
-          process.env.NODE_ENV === "development"
-            ? "price_1Niyy5AxyNprDp7iZIqEyD2h"
-            : "price_456",
+        priceId: null,
         //  REQUIRED - Name of the plan, displayed on the pricing page
-        name: "Starter",
+        name: "Leitura Rápida",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-        description: "Perfect for small projects",
-        // The price you want to display, the one user will be charged on Stripe.
-        price: 99,
-        // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 149,
+        description: "Instantânea",
+        price: null,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "Caminho de vida",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
+          { name: "Estágio de vida" },
+          { name: "Ano pessoal" },
+          { name: "Números harmônicos e desarmônicos" },
+          { name: "Signos harmônicos e desarmônico" },
+          { name: "Meses e horas harmônicas e desarmônicas" },
         ],
+        footerText:
+          "Uma leitura rápida te mostrando suas energias e o quê podem significar sozinhas.",
       },
       {
+        // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1Nk4AbAxyNprDp7iXEPBvXju"
-            : "price_456",
-        // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
+            ? "price_1NywbBBy6IHSlSgzJKuHoNc0"
+            : "price_1Nz3CUBy6IHSlSgzo76Ne8h1",
+        //  REQUIRED - Name of the plan, displayed on the pricing page
+        name: "Leitura Avançada (arquivo)",
+        // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
+        description: "Entrega em até 48h por email",
+        // The price you want to display, the one user will be charged on Stripe.
+        price: 28,
+        // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
+        priceAnchor: null,
         isFeatured: true,
-        name: "Advanced",
-        description: "You need more power",
-        price: 149,
-        priceAnchor: 299,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "O mesmo da leitura rápida +",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
-          { name: "1 year of updates" },
-          { name: "24/7 support" },
+          {
+            name: "Como suas energias se interferem",
+          },
+          {
+            name: "Melhores e piores anos para começar relacionamentos, começar negócios, se casar, ter filhos, etc baseado nos seus estágios de vida, anos pessoais e energias universais",
+          },
         ],
+        footerText:
+          "Para você que está confuso ou não tem tempo para estudar tudo a fundo.",
+      },
+      {
+        // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
+        priceId:
+          process.env.NODE_ENV === "development"
+            ? "price_1Nyz24By6IHSlSgzrJYDQ36D"
+            : "price_1Nz3D1By6IHSlSgzm51J9iEA",
+        //  REQUIRED - Name of the plan, displayed on the pricing page
+        name: "Leitura Avançada (conversa)",
+        // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
+        description: "Conversa online de aprox. 53 min. Mediante a reserva",
+        // The price you want to display, the one user will be charged on Stripe.
+        price: 107,
+        // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
+        priceAnchor: 188,
+        features: [
+          {
+            name: "O mesmo da leitura avançada por arquivo +",
+          },
+          {
+            name: "Disponível qualquer dia da semana",
+          },
+          {
+            name: "Esclarecimento de acontecimentos passados (traumas, conquistas, percas, etc)",
+          },
+          {
+            name: "Qualquer dúvida específica sobre suas energias",
+          },
+        ],
+        footerText:
+          "Para você que está confuso ou não tem tempo para estudar tudo a fundo.",
       },
     ],
   },
@@ -75,13 +111,13 @@ const config = {
     // subdomain to use when sending emails, if you don't have a subdomain, just remove it. Highly recommended to have one (i.e. mg.yourdomain.com or mail.yourdomain.com)
     subdomain: "mg",
     // REQUIRED — Email 'From' field to be used when sending magic login links
-    fromNoReply: `NumEros <mateus.nardo@migii.com.br>`,
+    fromNoReply: `NumEros <contato@mg.numerosapp.com>`,
     // REQUIRED — Email 'From' field to be used when sending other emails, like abandoned carts, updates etc..
-    fromAdmin: `Mateus at NumEros <mateus.nardo@migii.com.br>`,
+    fromAdmin: `Mateus do NumEros <contato@mg.numerosapp.com>`,
     // Email shown to customer if need support. Leave empty if not needed => if empty, set up Crisp above, otherwise you won't be able to offer customer support."
-    supportEmail: "",
+    supportEmail: "contato@mg.numerosapp.com",
     // When someone replies to supportEmail sent by the app, forward it to the email below (otherwise it's lost). If you set supportEmail to empty, this will be ignored.
-    forwardRepliesTo: "",
+    forwardRepliesTo: "mateus.nardo@migii.com.br",
   },
   colors: {
     // REQUIRED — The DaisyUI theme to use (added to _document.js). Leave blank for default (light & dark mode). If you any other theme than light/dark, you need to add it in config.tailwind.js in daisyui.themes.

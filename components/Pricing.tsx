@@ -1,18 +1,20 @@
 import config from "@/config";
-import ButtonLead from "./ButtonLead";
+import Link from "next/link";
+import ButtonCheckout from "./ButtonCheckout";
 
 // <Pricing/> displays the pricing plans for your app
 // It's your Stripe config in config.js.stripe.plans[] that will be used to display the plans
 // <ButtonCheckout /> renders a button that will redirect the user to Stripe checkout called the /api/stripe/create-checkout API endpoint with the correct priceId
 
-const Pricing = () => {
+const Pricing = ({ isSignedIn }: { isSignedIn: boolean }) => {
   return (
-    <section className="bg-base-200 overflow-hidden" id="pricing">
+    <section className="bg-base-300 overflow-hidden" id="pricing">
       <div className="py-24 px-8 max-w-5xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
-          <p className="font-medium text-primary mb-8">Pricing</p>
+          <p className="font-medium text-primary mb-8">Produtos</p>
           <h2 className="font-bold text-3xl lg:text-5xl tracking-tight">
-            Save hours of repetitive code and ship faster!
+            Uma leitura avançada levando em consideração todas as energias que
+            te afetam
           </h2>
         </div>
 
@@ -52,19 +54,27 @@ const Pricing = () => {
                       <p className="relative">
                         <span className="absolute bg-base-content h-[1.5px] inset-x-0 top-[53%]"></span>
                         <span className="text-base-content/80">
-                          ${plan.priceAnchor}
+                          R${plan.priceAnchor}
                         </span>
                       </p>
                     </div>
                   )}
-                  <p className={`text-5xl tracking-tight font-extrabold`}>
-                    ${plan.price}
-                  </p>
-                  <div className="flex flex-col justify-end mb-[4px]">
-                    <p className="text-xs text-base-content/60 uppercase font-semibold">
-                      USD
+                  {plan.price ? (
+                    <>
+                      <p className={`text-5xl tracking-tight font-extrabold`}>
+                        R${plan.price}
+                      </p>
+                      <div className="flex flex-col justify-end mb-[4px]">
+                        <p className="text-xs text-base-content/60 uppercase font-semibold">
+                          BRL
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-5xl tracking-tight font-extrabold">
+                      Gratuito
                     </p>
-                  </div>
+                  )}
                 </div>
                 {plan.features && (
                   <ul className="space-y-2.5 leading-relaxed text-base flex-1">
@@ -89,12 +99,22 @@ const Pricing = () => {
                   </ul>
                 )}
                 <div className="space-y-2">
-                  <ButtonLead extraStyle="!max-w-none !w-full" />
-                  {/* <ButtonCheckout priceId={plan.priceId} /> */}
+                  {plan.priceId ? (
+                    <ButtonCheckout priceId={plan.priceId} />
+                  ) : (
+                    <Link
+                      className="btn btn-primary btn-block"
+                      href={isSignedIn ? "/dashboard" : "/signin"}
+                    >
+                      {isSignedIn ? "Entrar" : "Receber Leitura"}
+                    </Link>
+                  )}
 
-                  <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                    Pay once. Access forever.
-                  </p>
+                  {plan.footerText && (
+                    <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
+                      {plan.footerText}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

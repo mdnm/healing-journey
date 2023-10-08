@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import config from "@/config";
+import type { Metadata } from "next";
 
 // These are all the SEO tags you can add to your pages.
 // It prefills data with default title/description/OG, etc.. and you can cusotmize it for each page.
@@ -96,9 +96,9 @@ export const renderSchemaTags = () => {
           url: `https://${config.domainName}/`,
           author: {
             "@type": "Person",
-            name: "Marc Lou",
+            name: "Mateus",
           },
-          datePublished: "2023-08-01",
+          datePublished: "2023-10-08",
           applicationCategory: "EducationalApplication",
           aggregateRating: {
             "@type": "AggregateRating",
@@ -108,8 +108,8 @@ export const renderSchemaTags = () => {
           offers: [
             {
               "@type": "Offer",
-              price: "9.00",
-              priceCurrency: "USD",
+              price: "8.00",
+              priceCurrency: "BRL",
             },
           ],
         }),

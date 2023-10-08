@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import type { JSX } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // List of features to display:
 // - name: name of the feature
@@ -489,7 +489,7 @@ const FeaturesListicle = () => {
             </span>
           ))}
         </div>
-        <div className="bg-base-200">
+        <div className="bg-base-300">
           <div className="max-w-3xl mx-auto flex flex-col md:flex-row justify-center md:justify-start md:items-center gap-12">
             <div
               className="text-base-content/80 leading-relaxed space-y-4 px-12 md:px-0 py-12 max-w-xl animate-opacity"

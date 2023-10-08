@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { getSEOTags } from "@/libs/seo";
 import config from "@/config";
+import { getSEOTags } from "@/libs/seo";
+import Link from "next/link";
 
 // CHATGPT PROMPT TO GENERATE YOUR TERMS & SERVICES — replace with your own data 👇
 
@@ -26,7 +26,7 @@ import config from "@/config";
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Terms and Conditions | ${config.appName}`,
+  title: `Termos e Condições | ${config.appName}`,
   canonicalUrlRelative: "/tos",
 });
 
@@ -47,49 +47,54 @@ const TOS = () => {
               clipRule="evenodd"
             />
           </svg>
-          Back
+          Voltar
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Terms and Conditions for {config.appName}
+          Termos e Condições {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`Atualizado Em: 8 de Outubro, 2023
 
-Welcome to ShipFast!
+1. Introdução
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Ao acessar e usar nosso site, localizado em https://numerosapp.com, você concorda em cumprir e estar vinculado aos seguintes termos e condições. Se você não concordar com estes termos, por favor, não use nosso site.
 
-1. Description of ShipFast
+2. Propriedade
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+Ao comprar uma leitura do NumEros, você é o proprietário das informações fornecidas na leitura. No entanto, você não tem o direito de revender, redistribuir ou usar as informações para fins comerciais sem o consentimento expresso por escrito do NumEros.
 
-2. Ownership and Usage Rights
+3. Coleta de Dados do Usuário
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+Para fornecer nossos serviços, coletamos os seguintes dados pessoais:
 
-3. User Data and Privacy
+Nome
+Email
+Data de nascimento
+Hora de nascimento
+Informações de pagamento
+Seus dados são coletados com o máximo cuidado e são protegidos de acordo com nossa política de privacidade, que pode ser encontrada em https://numerosapp.com/privacy-policy.
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+4. Coleta de Dados Não Pessoais
 
-4. Non-Personal Data Collection
+Usamos cookies da web para melhorar sua experiência de usuário e coletar dados não pessoais para fins de análise e otimização do site.
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
+5. Informações de Contato
 
-5. Governing Law
+Para quaisquer dúvidas, preocupações ou feedback sobre nossos serviços, entre em contato conosco pelo e-mail mateus.nardo@migii.com.br.
 
-These Terms are governed by the laws of France.
+6. Lei Aplicável
 
-6. Updates to the Terms
+Estes termos e condições são regidos e interpretados de acordo com as leis do Brasil. Quaisquer disputas decorrentes destes termos estarão sujeitas à jurisdição exclusiva dos tribunais do Brasil.
 
-We may update these Terms from time to time. Users will be notified of any changes via email.
+7. Atualizações dos Termos
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
+Reservamo-nos o direito de atualizar, alterar ou modificar estes termos a qualquer momento. Quando as alterações forem feitas, os usuários serão notificados por e-mail. Seu uso contínuo de nosso site após a implementação de qualquer alteração constitui sua aceitação das mudanças.
 
-Thank you for using ShipFast!`}
+Agradecemos por escolher o NumEros. Valorizamos sua confiança e estamos comprometidos em fornecer o melhor serviço possível.`}
         </pre>
       </div>
     </main>

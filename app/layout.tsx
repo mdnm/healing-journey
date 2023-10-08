@@ -1,11 +1,11 @@
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import { getSEOTags } from "@/libs/seo";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
 
-const font = Inter({ subsets: ["latin"] });
+const font = Nunito_Sans({ subsets: ["latin"] });
 
 // This adds default SEO tags to all pages in our app.
 // You can override them in each page passing params to getSOTags() function.
@@ -13,7 +13,7 @@ export const metadata = getSEOTags();
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-theme={config.colors.theme} className={font.className}>
+    <html lang="pt" data-theme={config.colors.theme} className={font.className}>
       {config.domainName && (
         <head>
           <script

@@ -1,7 +1,6 @@
-import { JSX } from "react";
-import Image from "next/image";
-import { StaticImageData } from "next/image";
 import config from "@/config";
+import Image, { StaticImageData } from "next/image";
+import { JSX } from "react";
 
 // Use this object to add an icon to the testimonial (optional) like the Product Hunt logo for instance.
 // Only change the values if you add more referrings sites (currently Twitter & Product Hunt)
@@ -201,7 +200,7 @@ const Testimonial = ({ i }: { i: number }) => {
 
 const Testimonials11 = () => {
   return (
-    <section className="bg-base-200" id="testimonials">
+    <section className="bg-base-300" id="testimonials">
       <div className="py-24 px-8 max-w-7xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
