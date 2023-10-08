@@ -2,6 +2,8 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 // This route is used to store the leads that are generated from the landing page.
 // The API call is initiated by <ButtonLead /> component
 export async function POST(req: NextRequest) {
@@ -24,13 +26,11 @@ export async function POST(req: NextRequest) {
       return;
     }
 
-    await supabase
-      .from("ratings")
-      .insert({
-        rating: body.rating,
-        reason: body.reason,
-        userId: session.user.id,
-      });
+    await supabase.from("ratings").insert({
+      rating: body.rating,
+      reason: body.reason,
+      userId: session.user.id,
+    });
 
     return NextResponse.json({});
   } catch (e) {
