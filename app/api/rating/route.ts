@@ -19,18 +19,18 @@ export async function POST(req: NextRequest) {
   try {
     const cookieStore = cookies();
     const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
-    const { data } = await supabase.auth.getSession();
-    const { session } = data;
+    //const { data } = await supabase.auth.getSession();
+    //const { session } = data;
 
-    if (!session) {
-      NextResponse.json({ error: "Não autorizado" }, { status: 401 });
-      return;
-    }
+    // if (!session) {
+    //   NextResponse.json({ error: "Não autorizado" }, { status: 401 });
+    //   return;
+    // }
 
     await supabase.from("ratings").insert({
       rating: body.rating,
       reason: body.reason,
-      userId: session.user.id,
+      userId: "6f8c54be-8098-4479-8763-b2ca2362496e", //session.user.id,
     });
 
     return NextResponse.json({});
