@@ -102,7 +102,7 @@ export default function Dashboard() {
           </span>
         </div>
         <button
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg plausible-event-name=Reading"
           onClick={() => handleReading()}
         >
           {isLoading && (

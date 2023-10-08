@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <script
             defer
             data-domain={config.domainName}
-            src="https://plausible.io/js/script.js"
+            src="https://plausible.io/js/script.tagged-events.js"
           ></script>
         </head>
       )}
