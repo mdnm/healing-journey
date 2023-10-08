@@ -16,13 +16,13 @@ export default function sitemap(): Array<
 > {
   return [
     {
-      url: config.domainName,
+      url: `https://${config.domainName}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${config.domainName}/learn`,
+      url: `https://${config.domainName}/learn`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
