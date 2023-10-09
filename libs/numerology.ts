@@ -194,6 +194,10 @@ export const numberReducer = (number: number): NumberEnergy => {
     return 11;
   }
 
+  if (numberSum === 10) {
+    return 1;
+  }
+
   return numberSum as NumberEnergy;
 };
 

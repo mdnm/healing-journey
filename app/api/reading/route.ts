@@ -218,17 +218,7 @@ export async function POST(req: NextRequest) {
 
   const lifePathCompatibility = numberCompatibilityMap[lifePath];
 
-  let dayCompatibility: NumberCompatibility;
-  if (
-    reducedDay <= 9 ||
-    reducedDay === 11 ||
-    reducedDay === 22 ||
-    reducedDay === 33
-  ) {
-    dayCompatibility = numberCompatibilityMap[reducedDay];
-  } else {
-    dayCompatibility = numberCompatibilityMap[numberReducer(reducedDay)];
-  }
+  const dayCompatibility = numberCompatibilityMap[reducedDay];
 
   //let lowerCaseNameValue = null;
   //let upperCaseNameValue = null;
