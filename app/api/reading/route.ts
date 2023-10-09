@@ -1,6 +1,4 @@
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { astro } from "iztro";
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import {
   Animal,
@@ -29,16 +27,18 @@ export const dynamic = "force-dynamic";
 
 export type ReadingResponseType = {
   numerology: {
-    lifePathWithoutReducingDay: NumberEnergy;
+    lifePathUnreduced: NumberEnergy;
     lifePath: LifePath;
+    partialEnergyUnreduced: NumberEnergy;
     partialEnergy: NumberEnergy;
     lifeStage: NumberEnergy;
-    personalYear: NumberEnergy;
+    personalYear: LifePath;
     lifePathCompatibility: NumberCompatibility;
     dayCompatibility: NumberCompatibility;
   };
   zodiac: {
     easternZodiacYear: Zodiac;
+    trine: keyof typeof easternTrines;
     easternEnemy: Animal;
     easternAvoid: Animal;
     friendSigns: Animal[];
@@ -52,16 +52,6 @@ export type ReadingResponseType = {
 };
 
 export async function POST(req: NextRequest) {
-  const cookieStore = cookies();
-  const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
-  const { data } = await supabase.auth.getSession();
-  const { session } = data;
-
-  if (!session) {
-    NextResponse.json({ error: "Não autorizado" }, { status: 401 });
-    return;
-  }
-
   const body = await req.json();
 
   if (!body.date) {
@@ -98,8 +88,10 @@ export async function POST(req: NextRequest) {
   const lifePathWithoutReducingDay = numberReducer(
     day + reducedMonth + reducedYear
   );
-  const sum = reducedDay + reducedMonth + reducedYear;
-  const lifePath = lifePathReducer(sum);
+  const lifePathUnreduced = (reducedDay +
+    reducedMonth +
+    reducedYear) as NumberEnergy;
+  const lifePath = lifePathReducer(lifePathUnreduced);
 
   const astrolabe = astro.astrolabeBySolarDate(
     `${date.getFullYear()}-${date.getMonth() + 1}-${day}`,
@@ -122,7 +114,9 @@ export async function POST(req: NextRequest) {
   const { enemy: easternEnemy, avoid: easternAvoid } =
     easternEnemySignMap[easternZodiacYear.sign];
 
-  const friendSigns = easternTrines[easternTrineMap[easternZodiacYear.sign]];
+  const trine = easternTrineMap[easternZodiacYear.sign];
+
+  const friendSigns = easternTrines[trine];
 
   const friendMonths = easternTrines[
     easternTrineMap[easternZodiacMonth.sign]
@@ -248,8 +242,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json<ReadingResponseType>(
       {
         numerology: {
-          lifePathWithoutReducingDay,
+          lifePathUnreduced,
           lifePath,
+          partialEnergyUnreduced: day as NumberEnergy,
           partialEnergy: reducedDay,
           lifeStage,
           personalYear,
@@ -258,6 +253,7 @@ export async function POST(req: NextRequest) {
         },
         zodiac: {
           easternZodiacYear,
+          trine,
           easternEnemy,
           easternAvoid,
           friendSigns,

@@ -130,7 +130,7 @@ const faqList: FAQItemProps[] = [
         </p>
         <p>
           Se aprofundando nos estudos você terá{" "}
-          <span className="font-bold">todas as informações necessárias</span>
+          <span className="font-bold">todas as informações necessárias</span>{" "}
           para fazer uma leitura avançada por conta própria.
         </p>
         <p>

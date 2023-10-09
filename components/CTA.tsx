@@ -22,7 +22,7 @@ const CTA = () => {
             opinião
           </p>
 
-          <Link href={"/#pricing"} className="btn btn-primary btn-wide">
+          <Link href={"/pricing"} className="btn btn-primary btn-wide">
             Quero uma leitura
           </Link>
         </div>

@@ -16,23 +16,24 @@ const links: {
     label: "Aprenda mais",
   },
   {
+    href: "/pricing",
+    label: "Leitura Avançada",
+  },
+  {
     href: "/#faq",
     label: "FAQ",
   },
 ];
 
-const CTA = ({ isSignedIn }: { isSignedIn: boolean }) => (
-  <Link
-    href={isSignedIn ? "/dashboard" : "/#pricing"}
-    className="btn btn-primary"
-  >
+const CTA = () => (
+  <Link href={"/#reading"} className="btn btn-primary">
     Quero uma leitura
   </Link>
 );
 
 // A header with a logo on the left, links in the center (like Pricing, etc...), and a CTA (like Get Started or Login) on the right.
 // The header is responsive, and on mobile, the links are hidden behind a burger button.
-const Header = ({ isSignedIn }: { isSignedIn: boolean }) => {
+const Header = () => {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -105,7 +106,7 @@ const Header = ({ isSignedIn }: { isSignedIn: boolean }) => {
 
         {/* CTA on large screens */}
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
-          <CTA isSignedIn={isSignedIn} />
+          <CTA />
         </div>
       </nav>
 
@@ -172,7 +173,7 @@ const Header = ({ isSignedIn }: { isSignedIn: boolean }) => {
             <div className="divider"></div>
             {/* Your CTA on small screens */}
             <div className="flex flex-col">
-              <CTA isSignedIn={isSignedIn} />
+              <CTA />
             </div>
           </div>
         </div>

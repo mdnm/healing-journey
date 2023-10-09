@@ -20,27 +20,6 @@ const config = {
     plans: [
       {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
-        priceId: null,
-        //  REQUIRED - Name of the plan, displayed on the pricing page
-        name: "Leitura Rápida",
-        // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-        description: "Instantânea",
-        price: null,
-        features: [
-          {
-            name: "Caminho de vida",
-          },
-          { name: "Estágio de vida" },
-          { name: "Ano pessoal" },
-          { name: "Números harmônicos e desarmônicos" },
-          { name: "Signos harmônicos e desarmônico" },
-          { name: "Meses e horas harmônicas e desarmônicas" },
-        ],
-        footerText:
-          "Uma leitura rápida te mostrando suas energias e o quê podem significar sozinhas.",
-      },
-      {
-        // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
         priceId:
           process.env.NODE_ENV === "development"
             ? "price_1NywbBBy6IHSlSgzJKuHoNc0"
@@ -56,8 +35,13 @@ const config = {
         isFeatured: true,
         features: [
           {
-            name: "O mesmo da leitura rápida +",
+            name: "Caminho de vida",
           },
+          { name: "Estágio de vida" },
+          { name: "Ano pessoal" },
+          { name: "Números harmônicos e desarmônicos" },
+          { name: "Signos harmônicos e desarmônico" },
+          { name: "Meses e horas harmônicas e desarmônicas" },
           {
             name: "Como suas energias se interferem",
           },
@@ -87,7 +71,7 @@ const config = {
             name: "O mesmo da leitura avançada por arquivo +",
           },
           {
-            name: "Disponível qualquer dia da semana",
+            name: "Disponibilidade qualquer dia da semana",
           },
           {
             name: "Esclarecimento de acontecimentos passados (traumas, conquistas, percas, etc)",
@@ -97,7 +81,7 @@ const config = {
           },
         ],
         footerText:
-          "Para você que está confuso ou não tem tempo para estudar tudo a fundo.",
+          "Para você que deseja tirar o máximo de proveito desse conhecimento.",
       },
     ],
   },

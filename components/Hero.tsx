@@ -14,7 +14,7 @@ const Hero = () => {
           Entenda porque você parece estar andando contra a maré ou repetindo os
           mesmos erros e como mudar isso.
         </p>
-        <Link href={"/#pricing"}>
+        <Link href={"/#reading"}>
           <ButtonGradient title="Quero uma leitura" />
         </Link>
 

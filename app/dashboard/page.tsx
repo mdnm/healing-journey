@@ -202,8 +202,8 @@ const NumerologyReading = ({
       <h2 className="font-bold text-2xl">Numerologia</h2>
       <p className="font-bold text-xl text-center">
         Caminho de vida:{" "}
-        {numerology.lifePathWithoutReducingDay !== numerology.lifePath
-          ? `${numerology.lifePathWithoutReducingDay}/${numerology.lifePath}`
+        {numerology.lifePathUnreduced !== numerology.lifePath
+          ? `${numerology.lifePathUnreduced}/${numerology.lifePath}`
           : numerology.lifePath}
       </p>
       <p className="text-lg text-center">
