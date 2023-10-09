@@ -1,4 +1,17 @@
-export type NumberEnergy = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 22 | 33;
+export type NumberEnergy =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 11
+  | 22
+  | 33
+  | number;
 export type LifePath = 1 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 22 | 33;
 
 export type NumberCompatibility = {

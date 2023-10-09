@@ -329,6 +329,14 @@ const NumerologyReading = ({
             Energia parcial (do dia) {numerology.partialEnergy}:{" "}
             {partialEnergyInfoMap[numerology.partialEnergy]}
           </li>
+          {numerology.partialEnergyUnreduced === 28 && (
+            <li>
+              De todas as energias 1 (1,10,19,28,37, etc.) o 28 é o número mais
+              bem-sucedido financeiramente e é o número da riqueza - Bill Gates
+              nasceu no dia 28, Steve Jobs e a Apple são caminhos de vida 28,
+              Wall Street foi fundada em um dia 28, etc.
+            </li>
+          )}
           <li>
             Ano pessoal {numerology.personalYear}:{" "}
             {personalYearInfoMap[numerology.personalYear]}
