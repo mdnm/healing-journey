@@ -23,7 +23,7 @@ const CTA = () => {
           </p>
 
           <Link href={"/pricing"} className="btn btn-primary btn-wide">
-            Quero uma leitura
+            Quero uma leitura avançada
           </Link>
         </div>
       </div>
