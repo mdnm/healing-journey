@@ -99,7 +99,7 @@ export default function QuickReading() {
             className="select select-bordered w-full max-w-xs"
             onChange={(e) => setHour(Number(e.target.value))}
           >
-            <option value={null}>Sua hora de nascimento</option>
+            <option value={null}>(Opcional) Sua hora de nascimento</option>
             {ANIMAL_HOURS.map((hour, index) => (
               <option key={hour} value={index}>
                 {hour}
