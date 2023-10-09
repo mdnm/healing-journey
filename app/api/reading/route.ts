@@ -217,7 +217,18 @@ export async function POST(req: NextRequest) {
   // }-${second}, 3rd stage ${second + 1}-${third}, 4th stage ${third + 1}+`;
 
   const lifePathCompatibility = numberCompatibilityMap[lifePath];
-  const dayCompatibility = numberCompatibilityMap[reducedDay];
+
+  let dayCompatibility: NumberCompatibility;
+  if (
+    reducedDay <= 9 ||
+    reducedDay === 11 ||
+    reducedDay === 22 ||
+    reducedDay === 33
+  ) {
+    dayCompatibility = numberCompatibilityMap[reducedDay];
+  } else {
+    dayCompatibility = numberCompatibilityMap[numberReducer(reducedDay)];
+  }
 
   //let lowerCaseNameValue = null;
   //let upperCaseNameValue = null;
