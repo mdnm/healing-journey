@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
   const reducedYear = numberReducer(year);
   const lifePathWithoutReducingDay = numberReducer(
     day + reducedMonth + reducedYear
-  );
+  ) as LifePath;
   const lifePathUnreduced = (reducedDay +
     reducedMonth +
     reducedYear) as NumberEnergy;
