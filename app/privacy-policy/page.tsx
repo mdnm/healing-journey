@@ -94,7 +94,7 @@ Reservamo-nos o direito de atualizar ou alterar nossa política de privacidade a
 
 8. Informações de Contato
 
-Para quaisquer dúvidas, preocupações ou feedback sobre nossas práticas de privacidade, entre em contato conosco pelo e-mail mateus.nardo@migii.com.br.
+Para quaisquer dúvidas, preocupações ou feedback sobre nossas práticas de privacidade, entre em contato conosco pelo e-mail contato@mg.numerosapp.com.
 
 Agradecemos por escolher o NumEros. Estamos comprometidos em proteger sua privacidade e garantir que suas informações pessoais sejam tratadas com cuidado e respeito.`}
         </pre>

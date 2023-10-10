@@ -84,7 +84,7 @@ Usamos cookies da web para melhorar sua experiência de usuário e coletar dados
 
 5. Informações de Contato
 
-Para quaisquer dúvidas, preocupações ou feedback sobre nossos serviços, entre em contato conosco pelo e-mail mateus.nardo@migii.com.br.
+Para quaisquer dúvidas, preocupações ou feedback sobre nossos serviços, entre em contato conosco pelo e-mail contato@mg.numerosapp.com.
 
 6. Lei Aplicável
 
