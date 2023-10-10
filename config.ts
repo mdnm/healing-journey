@@ -31,7 +31,7 @@ const config = {
         // The price you want to display, the one user will be charged on Stripe.
         price: 28,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: null,
+        priceAnchor: 80,
         isFeatured: true,
         features: [
           {
@@ -65,7 +65,7 @@ const config = {
         // The price you want to display, the one user will be charged on Stripe.
         price: 107,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 188,
+        priceAnchor: 206,
         features: [
           {
             name: "O mesmo da leitura avançada por arquivo +",
