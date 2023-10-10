@@ -201,6 +201,14 @@ export const numberReducer = (number: number): NumberEnergy => {
   return numberSum as NumberEnergy;
 };
 
+export const impureMasterNumberReducer = (
+  impureMasterNumber: NumberEnergy
+): NumberEnergy => {
+  if (impureMasterNumber === 22) return 4;
+
+  return 6;
+};
+
 export const lifePathReducer = (number: number): LifePath => {
   const reducedNumber = numberReducer(number);
 

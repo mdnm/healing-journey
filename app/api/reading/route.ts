@@ -29,6 +29,7 @@ export type ReadingResponseType = {
   numerology: {
     lifePathUnreduced: NumberEnergy;
     lifePath: LifePath;
+    isImpureMasterNumber: boolean;
     partialEnergyUnreduced: NumberEnergy;
     partialEnergy: NumberEnergy;
     lifeStage: NumberEnergy;
@@ -245,6 +246,7 @@ export async function POST(req: NextRequest) {
         numerology: {
           lifePathUnreduced,
           lifePath,
+          isImpureMasterNumber,
           partialEnergyUnreduced: day as NumberEnergy,
           partialEnergy: reducedDay,
           lifeStage,

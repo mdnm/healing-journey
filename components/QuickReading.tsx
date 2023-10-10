@@ -14,6 +14,7 @@ import {
 } from "@/libs/eastern-astrology";
 import {
   NumberCompatibility,
+  impureMasterNumberReducer,
   lifePathInfoMap,
   partialEnergyInfoMap,
   personalYearInfoMap,
@@ -220,7 +221,11 @@ const NumerologyReading = ({
         Caminho de vida:{" "}
         {numerology.lifePathUnreduced !== numerology.lifePath
           ? `${numerology.lifePathUnreduced}/${numerology.lifePath}`
-          : numerology.lifePath}
+          : numerology.lifePath}{" "}
+        {numerology.isImpureMasterNumber &&
+          `Impuro, vibrará mais como ${impureMasterNumberReducer(
+            numerology.lifePath
+          )}`}
       </p>
       <p className="text-lg text-center">
         Energia parcial (do dia):{" "}
