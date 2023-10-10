@@ -19,18 +19,10 @@ export async function POST(req: NextRequest) {
   try {
     const cookieStore = cookies();
     const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
-    const { data } = await supabase.auth.getSession();
-    const { session } = data;
-
-    if (!session) {
-      NextResponse.json({ error: "Não autorizado" }, { status: 401 });
-      return;
-    }
 
     const ratingData = await supabase.from("ratings").insert({
       rating: body.rating,
       reason: body.reason,
-      userId: session.user.id,
     });
 
     return NextResponse.json({
