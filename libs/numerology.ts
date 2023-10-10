@@ -242,8 +242,8 @@ export const isImpure22 = (
 
   return (
     reducedDay === 4 ||
-    hasZerosRegex.test(day.toString()) ||
-    hasZerosRegex.test(month.toString()) ||
+    day > 9 ||
+    (month > 9 && month !== 11) ||
     hasZerosRegex.test(year.toString())
   );
 };
@@ -258,10 +258,8 @@ export const isImpure33 = (
 
   return (
     reducedDay === 6 ||
-    hasZerosRegex.test(day.toString()) ||
-    hasZerosRegex.test(month.toString()) ||
-    hasZerosRegex.test(year.toString()) ||
     day > 9 ||
-    (month > 9 && month !== 11)
+    (month > 9 && month !== 11) ||
+    hasZerosRegex.test(year.toString())
   );
 };
