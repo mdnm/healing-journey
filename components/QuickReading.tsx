@@ -231,21 +231,6 @@ const NumerologyReading = ({
       <p className="text-lg text-center">
         Ano pessoal: {numerology.personalYear}
       </p>
-      <div className="divider" />
-      <p className="text-lg text-center font-bold">
-        Tabela de harmônias baseado no caminho de vida
-      </p>
-      <NumberCompatibilityTable
-        numberCompatibility={numerology.lifePathCompatibility}
-      />
-      <div className="divider" />
-      <p className="text-lg text-center font-bold">
-        Tabela de harmônias baseado na energia parcial
-      </p>
-      <NumberCompatibilityTable
-        numberCompatibility={numerology.dayCompatibility}
-      />
-      <div className="divider" />
       <ReadingExplanationCollapse title="Explicações gerais e recomendações">
         <ul className="list-disc pl-4">
           <li>
@@ -317,15 +302,6 @@ const NumerologyReading = ({
             {lifePathInfoMap[numerology.lifePath]}
           </li>
           <li>
-            <Link
-              className="underline text-secondary"
-              href={`/learn#${numerology.lifePath}`}
-              target="_blank"
-            >
-              Aprenda mais sobre seu Caminho de Vida
-            </Link>
-          </li>
-          <li>
             Energia parcial (do dia) {numerology.partialEnergy}:{" "}
             {partialEnergyInfoMap[numerology.partialEnergy]}
           </li>
@@ -341,7 +317,31 @@ const NumerologyReading = ({
             Ano pessoal {numerology.personalYear}:{" "}
             {personalYearInfoMap[numerology.personalYear]}
           </li>
+          <li>
+            <Link
+              className="underline text-secondary"
+              href={`/learn#${numerology.lifePath}`}
+              target="_blank"
+            >
+              Aprenda mais sobre seu Caminho de Vida
+            </Link>
+          </li>
         </ul>
+      </ReadingExplanationCollapse>
+      <ReadingExplanationCollapse title="Números harmônicos e desarmônicos">
+        <p className="text-lg text-center font-bold">
+          Tabela de harmônias baseado no caminho de vida
+        </p>
+        <NumberCompatibilityTable
+          numberCompatibility={numerology.lifePathCompatibility}
+        />
+        <div className="divider" />
+        <p className="text-lg text-center font-bold">
+          Tabela de harmônias baseado na energia parcial
+        </p>
+        <NumberCompatibilityTable
+          numberCompatibility={numerology.dayCompatibility}
+        />
       </ReadingExplanationCollapse>
     </div>
   );
@@ -447,37 +447,6 @@ const EasternAstrologyReading = ({
             </span>
           ))}
       </p>
-      <div className="divider" />
-      <div className="text-lg text-center">
-        <p className="text-center">Meses harmônicos:</p>
-        <ul className="flex flex-col items-center list-disc">
-          {zodiac.friendMonths.map((month) => (
-            <li className="text-base" key={month}>
-              {month}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <p className="text-lg text-center">Mês desarmônico {zodiac.enemyMonth}</p>
-      {hour && (
-        <>
-          <div className="divider" />
-          <div className="text-lg text-center">
-            <p className="text-center">Horas harmônicas:</p>
-            <ul className="flex flex-col items-center list-disc">
-              {zodiac.friendHours.map((hour) => (
-                <li className="text-base" key={hour}>
-                  {hour}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p className="text-lg text-center">
-            Hora desarmônica {zodiac.enemyHour}
-          </p>{" "}
-        </>
-      )}
-      <div className="divider" />
       <p className="text-lg text-center">
         Ano atual {zodiac.easternZodiacCurrentYear} (
         {currentYearEnergy === "desarmônico" ? (
@@ -614,6 +583,39 @@ const EasternAstrologyReading = ({
         <p className="text-black font-bold">Seu trio:</p>
         <p className="mb-3">Características: {characteristics}</p>
         <p>Juntos num trio: {together}</p>
+      </ReadingExplanationCollapse>
+      <ReadingExplanationCollapse title="Meses e horas harmônicas e desarmônicas">
+        <div className="text-lg text-center">
+          <p className="text-center">Meses harmônicos:</p>
+          <ul className="flex flex-col items-center list-disc">
+            {zodiac.friendMonths.map((month) => (
+              <li className="text-base" key={month}>
+                {month}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="text-lg text-center">
+          Mês desarmônico {zodiac.enemyMonth}
+        </p>
+        {hour && (
+          <>
+            <div className="divider" />
+            <div className="text-lg text-center">
+              <p className="text-center">Horas harmônicas:</p>
+              <ul className="flex flex-col items-center list-disc">
+                {zodiac.friendHours.map((hour) => (
+                  <li className="text-base" key={hour}>
+                    {hour}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="text-lg text-center">
+              Hora desarmônica {zodiac.enemyHour}
+            </p>{" "}
+          </>
+        )}
       </ReadingExplanationCollapse>
     </div>
   );
