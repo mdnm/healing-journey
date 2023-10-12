@@ -1,10 +1,12 @@
 "use client";
 
 import config from "@/config";
+import * as ga from "@/gtag";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Session } from "@supabase/supabase-js";
 import { Crisp } from "crisp-sdk-web";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 import NextTopLoader from "nextjs-toploader";
 import { ReactNode, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
@@ -14,6 +16,7 @@ import { Tooltip } from "react-tooltip";
 // This component is separated from ClientLayout because it needs to be wrapped with <SessionProvider> to use useSession() hook
 const CrispChat = (): null => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const supabase = createClientComponentClient();
   const [data, setData] = useState<null | Session>(null);
@@ -57,6 +60,21 @@ const CrispChat = (): null => {
       Crisp.session.setData({ userId: data.user?.id });
     }
   }, [data]);
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return null;
 };

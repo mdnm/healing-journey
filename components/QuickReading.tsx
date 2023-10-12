@@ -1,6 +1,7 @@
 "use client";
 
 import { ReadingResponseType } from "@/app/api/reading/route";
+import * as ga from "@/gtag";
 import apiClient from "@/libs/api";
 import {
   ANIMAL_HOURS,
@@ -53,9 +54,25 @@ export default function QuickReading() {
         hour,
       });
 
+      ga.event({
+        action: "reading",
+        value: {
+          date,
+          hour,
+        },
+      });
+
       setReading(data);
     } catch (error) {
       console.log(error);
+
+      ga.event({
+        action: "reading-error",
+        value: {
+          date,
+          hour,
+        },
+      });
     } finally {
       setIsLoading(false);
     }
@@ -73,10 +90,24 @@ export default function QuickReading() {
         rating,
         reason: ratingReason,
       });
+      ga.event({
+        action: "rating",
+        value: {
+          rating,
+          ratingReason,
+        },
+      });
       toast.success("Seu feedback foi enviado com sucesso, obrigado!");
       setHasRated(true);
     } catch (error) {
       console.log(error);
+      ga.event({
+        action: "rating-error",
+        value: {
+          rating,
+          ratingReason,
+        },
+      });
     } finally {
       setIsLoading(false);
     }

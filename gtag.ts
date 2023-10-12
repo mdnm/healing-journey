@@ -29,9 +29,9 @@ export const event = ({
   value,
 }: {
   action: string;
-  category: string;
-  label: string;
-  value: string;
+  category?: string;
+  label?: string;
+  value?: any;
 }) => {
   if (!wasGtagInstalled(window)) return;
 
