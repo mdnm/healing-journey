@@ -8,7 +8,7 @@ const config = {
   appDescription:
     "Descubra o que os números dizem sobre você e por que algumas coisas parecem não dar certo.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "numerosapp.com",
+  domainName: "www.numerosapp.com",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
     id: "c9b43bf6-fe78-4830-a385-6d7e1aa0d8bd",

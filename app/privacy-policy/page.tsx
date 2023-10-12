@@ -61,7 +61,7 @@ const PrivacyPolicy = () => {
 
 1. Introdução
 
-Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Esta política de privacidade descreve como coletamos, usamos e protegemos suas informações pessoais. Ao usar nosso site, localizado em https://numerosapp.com, você concorda com a coleta e uso de informações de acordo com esta política.
+Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Esta política de privacidade descreve como coletamos, usamos e protegemos suas informações pessoais. Ao usar nosso site, localizado em https://www.numerosapp.com, você concorda com a coleta e uso de informações de acordo com esta política.
 
 2. Coleta de Dados do Usuário
 

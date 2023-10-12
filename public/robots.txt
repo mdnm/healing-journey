@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://numerosapp.com
+Host: https://www.numerosapp.com
 
 # Sitemaps
-Sitemap: https://numerosapp.com/sitemap.xml
+Sitemap: https://www.numerosapp.com/sitemap.xml

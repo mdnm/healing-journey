@@ -61,7 +61,7 @@ const TOS = () => {
 
 1. Introdução
 
-Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Ao acessar e usar nosso site, localizado em https://numerosapp.com, você concorda em cumprir e estar vinculado aos seguintes termos e condições. Se você não concordar com estes termos, por favor, não use nosso site.
+Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Ao acessar e usar nosso site, localizado em https://www.numerosapp.com, você concorda em cumprir e estar vinculado aos seguintes termos e condições. Se você não concordar com estes termos, por favor, não use nosso site.
 
 2. Propriedade
 
@@ -76,7 +76,7 @@ Email
 Data de nascimento
 Hora de nascimento
 Informações de pagamento
-Seus dados são coletados com o máximo cuidado e são protegidos de acordo com nossa política de privacidade, que pode ser encontrada em https://numerosapp.com/privacy-policy.
+Seus dados são coletados com o máximo cuidado e são protegidos de acordo com nossa política de privacidade, que pode ser encontrada em https://www.numerosapp.com/privacy-policy.
 
 4. Coleta de Dados Não Pessoais
 
