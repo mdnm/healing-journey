@@ -112,7 +112,7 @@ export default function QuickReading() {
           </span>
         </div>
         <button
-          className="btn btn-primary btn-lg plausible-event-name=Reading"
+          className="btn btn-primary btn-lg"
           onClick={() => handleReading()}
         >
           {isLoading && (

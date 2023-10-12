@@ -10,18 +10,6 @@ const nextConfig = {
       "logos-world.net",
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/plausible/js/script.tagged-events.js",
-        destination: "https://plausible.io/js/script.tagged-events.js",
-      },
-      {
-        source: "/plausible/api/event",
-        destination: "https://plausible.io/api/event",
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
