@@ -21,6 +21,14 @@ const faqList: FAQItemProps[] = [
           em nossa vida.
         </p>
         <p>
+          Estamos num mundo onde tudo é energia/frequência e pode ser reduzido a
+          um número. A numerologia pode ser aplicada em qualquer coisa (pessoas,
+          animais, lugares, objetos). Porém a energia não é definitiva, tudo
+          gira em torno de probabilidades e o universo possui outras leis que
+          nos afetam. A ideia é utilizar das probabilidades ao nosso favor e
+          cumprir nossa missão nessa vida.
+        </p>
+        <p>
           Através de cálculos matemáticos em base na sua data de nascimento e
           nome, é possível descobrir características da personalidade, talentos,
           pontos fortes e fracos, desafios, habilidades, tendências,
