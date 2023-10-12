@@ -13,8 +13,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/plausible/js/script.js",
-        destination: "https://plausible.io/js/script.js",
+        source: "/plausible/js/script.tagged-events.js",
+        destination: "https://plausible.io/js/script.tagged-events.js",
       },
       {
         source: "/plausible/api/event",
