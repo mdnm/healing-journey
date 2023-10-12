@@ -9,7 +9,10 @@ const font = Nunito_Sans({ subsets: ["latin"] });
 
 // This adds default SEO tags to all pages in our app.
 // You can override them in each page passing params to getSOTags() function.
-export const metadata = getSEOTags();
+export const metadata = getSEOTags({
+  keywords: ["NumEros", "numerologia", "astrologia", "oráculo", "bazi"],
+  canonicalUrlRelative: "/",
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
