@@ -56,10 +56,10 @@ export default function QuickReading() {
 
       ga.event({
         action: "reading",
-        value: {
+        value: JSON.stringify({
           date,
           hour,
-        },
+        }),
       });
 
       setReading(data);
@@ -68,10 +68,10 @@ export default function QuickReading() {
 
       ga.event({
         action: "reading-error",
-        value: {
+        value: JSON.stringify({
           date,
           hour,
-        },
+        }),
       });
     } finally {
       setIsLoading(false);
@@ -92,10 +92,10 @@ export default function QuickReading() {
       });
       ga.event({
         action: "rating",
-        value: {
+        value: JSON.stringify({
           rating,
           ratingReason,
-        },
+        }),
       });
       toast.success("Seu feedback foi enviado com sucesso, obrigado!");
       setHasRated(true);
@@ -103,10 +103,10 @@ export default function QuickReading() {
       console.log(error);
       ga.event({
         action: "rating-error",
-        value: {
+        value: JSON.stringify({
           rating,
           ratingReason,
-        },
+        }),
       });
     } finally {
       setIsLoading(false);
