@@ -134,7 +134,6 @@ export async function POST(req: NextRequest) {
   const attitudeNumber = numberReducer(reducedDay + reducedMonth);
 
   const isImpureMasterNumber =
-    lifePathWithoutReducingDay !== lifePath ||
     (lifePath === 22 && isImpure22(day, month, year, reducedDay)) ||
     (lifePath === 33 && isImpure33(day, month, year, reducedDay));
 
