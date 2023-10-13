@@ -1,5 +1,6 @@
 "use client";
 
+import * as ga from "@/gtag";
 import apiClient from "@/libs/api";
 import { useState } from "react";
 
@@ -22,9 +23,24 @@ const ButtonCheckout = ({ priceId }: { priceId: string }) => {
         }
       );
 
+      ga.event({
+        action: "begin_checkout",
+        value: JSON.stringify({
+          priceId,
+        }),
+      });
+
       window.location.href = url;
     } catch (e) {
       console.error(e);
+
+      ga.event({
+        action: "begin_checkout_error",
+        value: JSON.stringify({
+          priceId,
+          e: e?.message || e,
+        }),
+      });
     }
 
     setIsLoading(false);

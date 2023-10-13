@@ -14,7 +14,6 @@ import {
   signToEmojiMap,
 } from "@/libs/eastern-astrology";
 import {
-  NumberCompatibility,
   impureMasterNumberReducer,
   lifePathInfoMap,
   partialEnergyInfoMap,
@@ -23,6 +22,7 @@ import {
 import Link from "next/link";
 import { ReactNode, useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { NumberCompatibilityTable } from "./NumberCompatibilityTable";
 
 export default function QuickReading() {
   const [isLoading, setIsLoading] = useState(false);
@@ -71,6 +71,7 @@ export default function QuickReading() {
         value: JSON.stringify({
           date,
           hour,
+          error: error?.message || error,
         }),
       });
     } finally {
@@ -106,6 +107,7 @@ export default function QuickReading() {
         value: JSON.stringify({
           rating,
           ratingReason,
+          error: error?.message || error,
         }),
       });
     } finally {
@@ -356,7 +358,7 @@ const NumerologyReading = ({
           <li>
             <Link
               className="underline text-secondary"
-              href={`/learn#${numerology.lifePath}`}
+              href={`/learn/${numerology.lifePath}`}
               target="_blank"
             >
               Aprenda mais sobre seu Caminho de Vida
@@ -379,57 +381,6 @@ const NumerologyReading = ({
           numberCompatibility={numerology.dayCompatibility}
         />
       </ReadingExplanationCollapse>
-    </div>
-  );
-};
-
-const NumberCompatibilityTable = ({
-  numberCompatibility,
-}: {
-  numberCompatibility: NumberCompatibility;
-}) => {
-  return (
-    <div className="overflow-x-auto w-full">
-      <table className="table text-lg text-center">
-        <thead>
-          <tr className="text-lg text-center">
-            <th>Categoria</th>
-            <th>Números</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="hover">
-            <td>Alma gêmea (energia mais harmônica)</td>
-            <td>{numberCompatibility.soulmate.join(", ")}</td>
-          </tr>
-          <tr className="hover">
-            <td>Energias desarmônicas</td>
-            <td>{numberCompatibility.enemies.join(", ")}</td>
-          </tr>
-          <tr className="hover">
-            <td>Energias harmônicas</td>
-            <td>{numberCompatibility.friends.join(", ")}</td>
-          </tr>
-          {numberCompatibility.loveAndHates.length > 0 && (
-            <tr className="hover">
-              <td>Podem estar harmônia ou desarmonia</td>
-              <td>{numberCompatibility.loveAndHates.join(", ")}</td>
-            </tr>
-          )}
-          {numberCompatibility["66And33"].length > 0 && (
-            <tr className="hover">
-              <td>66% harmônia e 33% desarmonia</td>
-              <td>{numberCompatibility["66And33"].join(", ")}</td>
-            </tr>
-          )}
-          {numberCompatibility.syphonsEnergyFrom && (
-            <tr className="hover">
-              <td>Você &quot;rouba&quot; energia do número</td>
-              <td>{numberCompatibility.syphonsEnergyFrom}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
     </div>
   );
 };

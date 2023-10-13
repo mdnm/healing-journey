@@ -6,6 +6,21 @@ import Link from "next/link";
 // Add the Footer to the bottom of your landing page and more.
 // The support link is connected to the config.js file. If there's no config.mailgun.supportEmail, the link won't be displayed.
 
+const lifePaths = [
+  { href: "/learn/1", label: "Número 1: O LÍDER" },
+  { href: "/learn/2", label: "Número 2: O DIPLOMATA" },
+  { href: "/learn/3", label: "Número 3: A CRIANÇA" },
+  { href: "/learn/4", label: "Número 4: O TRABALHADOR" },
+  { href: "/learn/5", label: "Número 5: O VIAJANTE" },
+  { href: "/learn/6", label: "Número 6: O CASEIRO" },
+  { href: "/learn/7", label: "Número 7: O SOLITÁRIO" },
+  { href: "/learn/8", label: "Número 8: A PESSOA DO DINHEIRO" },
+  { href: "/learn/9", label: "Número 9: O ADAPTADOR" },
+  { href: "/learn/11", label: "Número 11: O MESTRE VISIONÁRIO" },
+  { href: "/learn/22", label: "Número 22: O MESTRE CONSTRUTOR" },
+  { href: "/learn/33", label: "Número 33: O MESTRE PROFESSOR" },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-base-300 border-t border-base-content/10">
@@ -39,7 +54,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex-grow flex flex-wrap justify-center -mb-10 md:mt-0 mt-10 text-center">
-            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/4 w-full px-4">
               <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
                 LINKS
               </div>
@@ -64,7 +79,25 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/4 w-full px-4">
+              <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
+                CAMINHOS DE VIDA
+              </div>
+
+              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+                {lifePaths.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="link link-hover text-left"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:w-1/4 w-full px-4">
               <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
                 LEGAL
               </div>
