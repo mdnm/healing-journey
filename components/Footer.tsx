@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
           <div className="flex-grow flex flex-wrap justify-center -mb-10 md:mt-0 mt-10 text-center">
             <div className="lg:w-1/4 w-full px-4">
-              <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
+              <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
                 LINKS
               </div>
 
@@ -80,7 +80,7 @@ const Footer = () => {
             </div>
 
             <div className="lg:w-1/4 w-full px-4">
-              <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
+              <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
                 CAMINHOS DE VIDA
               </div>
 
@@ -98,7 +98,7 @@ const Footer = () => {
             </div>
 
             <div className="lg:w-1/4 w-full px-4">
-              <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
+              <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
                 LEGAL
               </div>
 

@@ -4,7 +4,7 @@ import { numberCompatibilityMap } from "@/libs/numerology";
 import { getSEOTags } from "@/libs/seo";
 
 export const metadata = getSEOTags({
-  title: `Número 1: O LÍDER| ${config.appName}`,
+  title: `Número 1: O LÍDER | ${config.appName}`,
   canonicalUrlRelative: "/1",
 });
 
