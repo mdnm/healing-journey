@@ -23,6 +23,7 @@ import Link from "next/link";
 import { ReactNode, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { NumberCompatibilityTable } from "./NumberCompatibilityTable";
+import Pricing from "./Pricing";
 
 export default function QuickReading() {
   const [isLoading, setIsLoading] = useState(false);
@@ -182,7 +183,7 @@ export default function QuickReading() {
               )}
             </div>
             {!hasRated && (
-              <>
+              <div className="mt-3 flex flex-col w-full gap-2 items-center">
                 <div className="rating rating-lg">
                   <input
                     type="radio"
@@ -234,8 +235,9 @@ export default function QuickReading() {
                   )}
                   Enviar feedback
                 </button>
-              </>
+              </div>
             )}
+            <Pricing />
           </>
         )}
       </section>

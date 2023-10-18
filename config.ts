@@ -37,8 +37,8 @@ const config = {
           {
             name: "Caminho de vida",
           },
-          { name: "Estágio de vida" },
-          { name: "Ano pessoal" },
+          { name: "Estágios de vida" },
+          { name: "Próximos 5 anos pessoais" },
           { name: "Números harmônicos e desarmônicos" },
           { name: "Signos harmônicos e desarmônico" },
           { name: "Meses e horas harmônicas e desarmônicas" },
