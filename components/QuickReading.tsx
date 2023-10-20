@@ -250,6 +250,10 @@ const NumerologyReading = ({
 }: {
   numerology: ReadingResponseType["numerology"];
 }) => {
+  const impureMasterNumberReduced = impureMasterNumberReducer(
+    numerology.lifePath
+  );
+
   return (
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
@@ -258,9 +262,7 @@ const NumerologyReading = ({
           ? `${numerology.lifePathUnreduced}/${numerology.lifePath}`
           : numerology.lifePath}{" "}
         {numerology.isImpureMasterNumber &&
-          `Impuro, vibrará mais como ${impureMasterNumberReducer(
-            numerology.lifePath
-          )}`}
+          `Impuro, vibrará mais como ${impureMasterNumberReduced}`}
       </p>
       <p className="text-lg text-center">
         Energia parcial (do dia):{" "}
@@ -338,9 +340,15 @@ const NumerologyReading = ({
             provavelmente experienciou muitas mudanças e viagens.
           </li>
           <li>
-            Caminho de vida {numerology.lifePath}:{" "}
-            {lifePathInfoMap[numerology.lifePath]}
+            Caminho de vida {impureMasterNumberReduced}:{" "}
+            {lifePathInfoMap[impureMasterNumberReduced]}
           </li>
+          {numerology.isImpureMasterNumber && (
+            <li>
+              Terá energia parcial {numerology.lifePath}:{" "}
+              {lifePathInfoMap[numerology.lifePath]}
+            </li>
+          )}
           <li>
             Energia parcial (do dia) {numerology.partialEnergy}:{" "}
             {partialEnergyInfoMap[numerology.partialEnergy]}
@@ -360,7 +368,7 @@ const NumerologyReading = ({
           <li>
             <Link
               className="underline text-secondary"
-              href={`/learn/${numerology.lifePath}`}
+              href={`/learn/${impureMasterNumberReduced}`}
               target="_blank"
             >
               Aprenda mais sobre seu Caminho de Vida

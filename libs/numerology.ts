@@ -202,11 +202,13 @@ export const numberReducer = (number: number): NumberEnergy => {
 };
 
 export const impureMasterNumberReducer = (
-  impureMasterNumber: NumberEnergy
-): NumberEnergy => {
+  impureMasterNumber: LifePath
+): LifePath => {
   if (impureMasterNumber === 22) return 4;
 
-  return 6;
+  if (impureMasterNumber === 33) return 6;
+
+  return impureMasterNumber;
 };
 
 export const lifePathReducer = (number: number): LifePath => {
