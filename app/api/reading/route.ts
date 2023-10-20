@@ -15,6 +15,7 @@ import {
   LifePath,
   NumberCompatibility,
   NumberEnergy,
+  impureMasterNumberReducer,
   isImpure22,
   isImpure33,
   lifePathReducer,
@@ -215,7 +216,10 @@ export async function POST(req: NextRequest) {
   //   first + 1
   // }-${second}, 3rd stage ${second + 1}-${third}, 4th stage ${third + 1}+`;
 
-  const lifePathCompatibility = numberCompatibilityMap[lifePath];
+  const lifePathCompatibility =
+    numberCompatibilityMap[
+      isImpureMasterNumber ? impureMasterNumberReducer(lifePath) : lifePath
+    ];
 
   const dayCompatibility = numberCompatibilityMap[reducedDay];
 
