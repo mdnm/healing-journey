@@ -29,12 +29,13 @@ export default function QuickReading() {
   const [isLoading, setIsLoading] = useState(false);
   const [reading, setReading] = useState<ReadingResponseType | null>(null);
   const [date, setDate] = useState<string | null>(null);
+  const [name, setName] = useState<string | null>(null);
   const [hour, setHour] = useState<number | null>(null);
   const [rating, setRating] = useState(5);
   const [ratingReason, setRatingReason] = useState("");
   const [hasRated, setHasRated] = useState(false);
   const [selectedTab, setSelectedTab] = useState<
-    "numerology" | "eastern-zodiac"
+    "numerology" | "eastern-zodiac" | "gematria"
   >("numerology");
 
   const handleReading = async () => {
@@ -53,6 +54,7 @@ export default function QuickReading() {
       >("/reading", {
         date: formattedDate,
         hour,
+        name,
       });
 
       ga.event({
@@ -60,6 +62,7 @@ export default function QuickReading() {
         value: JSON.stringify({
           date,
           hour,
+          name,
         }),
       });
 
@@ -72,6 +75,7 @@ export default function QuickReading() {
         value: JSON.stringify({
           date,
           hour,
+          name,
           error: error?.message || error,
         }),
       });
@@ -120,30 +124,41 @@ export default function QuickReading() {
     <main className="p-8 pb-24 bg-base-200" id="reading">
       <section className="max-w-3xl mx-auto space-y-8 flex flex-col items-center">
         <h1 className="text-3xl md:text-4xl font-extrabold">Leitura Rápida</h1>
-        <div className="flex flex-col items-center gap-2 w-full">
-          <span>Sua data de nascimento</span>
-          <input
-            type="date"
-            placeholder="Sua data de nascimento"
-            className="input input-bordered w-full max-w-xs"
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col items-center gap-2 w-full">
-          <select
-            className="select select-bordered w-full max-w-xs"
-            onChange={(e) => setHour(Number(e.target.value))}
-          >
-            <option value={null}>(Opcional) Sua hora de nascimento</option>
-            {ANIMAL_HOURS.map((hour, index) => (
-              <option key={hour} value={index}>
-                {hour}
-              </option>
-            ))}
-          </select>
-          <span>
-            (usada somente para descobrir as horas harmônicas e desarmônicas)
-          </span>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-center gap-2 w-full">
+            <span>Sua data de nascimento</span>
+            <input
+              type="date"
+              placeholder="Sua data de nascimento"
+              className="input input-bordered w-full max-w-xs"
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+          <div className="flex flex-col items-center gap-2 w-full">
+            <select
+              className="select select-bordered w-full max-w-xs"
+              onChange={(e) => setHour(Number(e.target.value))}
+            >
+              <option value={null}>(Opcional) Sua hora de nascimento</option>
+              {ANIMAL_HOURS.map((hour, index) => (
+                <option key={hour} value={index}>
+                  {hour}
+                </option>
+              ))}
+            </select>
+            <span>
+              (usada somente para descobrir as horas harmônicas e desarmônicas)
+            </span>
+          </div>
+          <div className="flex flex-col items-center gap-2 w-full">
+            <span>Seu nome</span>
+            <input
+              type="text"
+              placeholder="Seu nome"
+              className="input input-bordered w-full max-w-xs"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
         </div>
         <button
           className="btn btn-primary btn-lg"
@@ -166,6 +181,16 @@ export default function QuickReading() {
                 >
                   Numerologia
                 </button>
+                {reading.gematria.firstLetterLowercaseValue && (
+                  <button
+                    className={`tab tab-lifted ${
+                      selectedTab === "gematria" ? "tab-active" : ""
+                    }`}
+                    onClick={() => setSelectedTab("gematria")}
+                  >
+                    Gematria (numerologia do nome)
+                  </button>
+                )}
                 <button
                   className={`tab tab-lifted ${
                     selectedTab === "eastern-zodiac" ? "tab-active" : ""
@@ -177,6 +202,9 @@ export default function QuickReading() {
               </div>
               {selectedTab === "numerology" && (
                 <NumerologyReading numerology={reading.numerology} />
+              )}
+              {selectedTab === "gematria" && (
+                <GematriaReading gematria={reading.gematria} />
               )}
               {selectedTab === "eastern-zodiac" && (
                 <EasternAstrologyReading zodiac={reading.zodiac} hour={hour} />
@@ -287,6 +315,7 @@ const NumerologyReading = ({
             Ordem das Operações (Força & Importância)
             <ol className="list-decimal pl-6">
               <li>Numerologia</li>
+              <li>Gematria</li>
               <li>Astrologia Oriental</li>
               <li>Astrologia Ocidental</li>
             </ol>
@@ -395,6 +424,102 @@ const NumerologyReading = ({
   );
 };
 
+const GematriaReading = ({
+  gematria,
+}: {
+  gematria: ReadingResponseType["gematria"];
+}) => {
+  return (
+    <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
+      <p className="font-bold text-xl text-center">
+        Energia da primeira letra (a mais impactante):{" "}
+        {gematria.firstLetterLowercaseValue !==
+        gematria.firstLetterLowercaseValueReduced
+          ? `${gematria.firstLetterLowercaseValue}/${gematria.firstLetterLowercaseValueReduced}`
+          : gematria.firstLetterLowercaseValueReduced}
+      </p>
+      <p className="text-lg text-center">
+        Energia da primeira letra (considerando-a capitalizada):{" "}
+        {gematria.firstLetterUppercaseValue !==
+        gematria.firstLetterUppercaseValueReduced
+          ? `${gematria.firstLetterUppercaseValue}/${gematria.firstLetterUppercaseValueReduced}`
+          : gematria.firstLetterUppercaseValueReduced}
+      </p>
+      <p className="text-lg text-center">
+        Energia do nome:{" "}
+        {gematria.lowerCaseNameValue !== gematria.lowerCaseNameValueReduced
+          ? `${gematria.lowerCaseNameValue}/${gematria.lowerCaseNameValueReduced}`
+          : gematria.lowerCaseNameValueReduced}
+      </p>
+      <p className="text-lg text-center">
+        Energia do nome (considerando a primeira letra capitalizada):{" "}
+        {gematria.upperCaseNameValue !== gematria.upperCaseNameValueReduced
+          ? `${gematria.upperCaseNameValue}/${gematria.upperCaseNameValueReduced}`
+          : gematria.upperCaseNameValueReduced}
+      </p>
+      <ReadingExplanationCollapse title="Explicações gerais e recomendações">
+        <ul className="list-disc pl-4">
+          <li>
+            Estamos num mundo onde tudo é energia/frequência e pode ser reduzido
+            a um número. A gematria pode ser aplicada em qualquer nome. Porém a
+            energia não é definitiva, tudo gira em torno de probabilidades e o
+            universo possui outras leis que nos afetam. A ideia é utilizar das
+            probabilidades ao nosso favor e cumprir nossa missão nessa vida.
+          </li>
+          <li>
+            Ordem das Operações (Força & Importância)
+            <ol className="list-decimal pl-6">
+              <li>Numerologia</li>
+              <li>Gematria</li>
+              <li>Astrologia Oriental</li>
+              <li>Astrologia Ocidental</li>
+            </ol>
+          </li>
+          <li>A primeira letra do seu nome é a mais impactante.</li>
+          <li>
+            O nome pelo qual você é conhecido (se possuí apelido por exemplo) é
+            o que deve ser utilizado. Pense em atores e atrizes, eles não
+            utilizam seus nomes de registro.
+          </li>
+        </ul>
+      </ReadingExplanationCollapse>
+      <ReadingExplanationCollapse title="Explicações">
+        <ul className="list-disc pl-4">
+          <li>
+            Energia da primeira letra{" "}
+            {gematria.firstLetterLowercaseValueReduced}:{" "}
+            {partialEnergyInfoMap[gematria.firstLetterLowercaseValueReduced]}
+          </li>
+          <li>
+            Energia da primeira letra capitalizada{" "}
+            {gematria.firstLetterUppercaseValueReduced}:{" "}
+            {partialEnergyInfoMap[gematria.firstLetterUppercaseValueReduced]}
+          </li>
+          <li>
+            Energia do nome {gematria.lowerCaseNameValueReduced}:{" "}
+            {partialEnergyInfoMap[gematria.lowerCaseNameValueReduced]}
+          </li>
+          <li>
+            Energia do nome com a primeira letra capitalizada{" "}
+            {gematria.upperCaseNameValueReduced}:{" "}
+            {partialEnergyInfoMap[gematria.upperCaseNameValueReduced]}
+          </li>
+          {(gematria.firstLetterUppercaseValue === 28 ||
+            gematria.lowerCaseNameValue === 28 ||
+            gematria.upperCaseNameValue === 28) && (
+            <li>
+              De todas as energias 1 (1,10,19,28,37, etc.) o 28 é o número mais
+              bem-sucedido financeiramente e é o número da riqueza - Bill Gates
+              nasceu no dia 28, Steve Jobs e a Apple são caminhos de vida 28,
+              Wall Street foi fundada em um dia 28, etc.
+            </li>
+          )}
+        </ul>
+      </ReadingExplanationCollapse>
+    </div>
+  );
+};
+
 const EasternAstrologyReading = ({
   zodiac,
   hour,
@@ -481,6 +606,7 @@ const EasternAstrologyReading = ({
             Ordem das Operações (Força & Importância)
             <ol className="list-decimal pl-6">
               <li>Numerologia</li>
+              <li>Gematria</li>
               <li>Astrologia Oriental</li>
               <li>Astrologia Ocidental</li>
             </ol>

@@ -16,6 +16,10 @@ const links: {
     label: "Aprenda mais",
   },
   {
+    href: "/#reading",
+    label: "Leitura Básica",
+  },
+  {
     href: "/pricing",
     label: "Leitura Avançada",
   },

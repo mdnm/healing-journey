@@ -201,6 +201,26 @@ export const numberReducer = (number: number): NumberEnergy => {
   return numberSum as NumberEnergy;
 };
 
+export const textReducer = (number: number): NumberEnergy => {
+  const isMasterNumber = number === 11 || number === 22 || number === 33;
+
+  // Master numbers aren't reduced
+  if (isMasterNumber) {
+    return number;
+  }
+
+  const numberString = number.toString();
+  const numberArray = numberString.split("");
+  const numberArrayNumber = numberArray.map((number) => Number(number));
+  const numberSum = numberArrayNumber.reduce((acc, number) => acc + number, 0);
+
+  if (numberSum > 9) {
+    return textReducer(numberSum);
+  }
+
+  return numberSum as NumberEnergy;
+};
+
 export const impureMasterNumberReducer = (
   impureMasterNumber: LifePath
 ): LifePath => {
