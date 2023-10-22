@@ -40,6 +40,7 @@ const config = {
           { name: "Estágios de vida" },
           { name: "Próximos 5 anos pessoais" },
           { name: "Números harmônicos e desarmônicos" },
+          { name: "Gematria (numerologia do nome)" },
           { name: "Signos harmônicos e desarmônico" },
           { name: "Meses e horas harmônicas e desarmônicas" },
           {
