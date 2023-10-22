@@ -2,6 +2,7 @@ import background from "@/app/hero-background.png";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonGradient from "./ButtonGradient";
+import TestimonialsAvatars from "./TestimonialsAvatars";
 
 const Hero = () => {
   return (
@@ -14,17 +15,17 @@ const Hero = () => {
           Entenda porque você parece estar andando contra a maré ou repetindo os
           mesmos erros e como mudar isso.
         </p>
-        <Link href={"/#reading"}>
-          <ButtonGradient title="Quero uma leitura" />
+        <Link href={"/pricing"}>
+          <ButtonGradient title="Quero uma leitura avançada" />
         </Link>
-
-        {/* <TestimonialsAvatars priority={true} /> */}
+        <TestimonialsAvatars priority={true} />
       </div>
+
       <div className="lg:w-full rounded-md">
         <Image
           src={background}
           alt="Background"
-          className="w-full rounded-md"
+          className="w-[400px] lg:w-full rounded-md"
           priority={true}
           width={1792}
           height={1024}

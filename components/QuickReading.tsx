@@ -121,9 +121,9 @@ export default function QuickReading() {
   };
 
   return (
-    <main className="p-8 pb-24 bg-base-200" id="reading">
-      <section className="max-w-3xl mx-auto space-y-8 flex flex-col items-center">
-        <h1 className="text-3xl md:text-4xl font-extrabold">Leitura Rápida</h1>
+    <main className="p-8 pb-24" id="reading">
+      <section className="max-w-3xl mx-auto space-y-8 flex flex-col items-center bg-white p-3 rounded-md">
+        <h2 className="sm:text-5xl text-4xl font-extrabold">Leitura Básica</h2>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col items-center gap-2 w-full">
             <span>Sua data de nascimento</span>

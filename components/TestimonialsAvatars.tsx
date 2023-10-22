@@ -1,29 +1,34 @@
-import Image from "next/image";
+import pessoa1 from "@/public/assets/pessoa1.png";
+import pessoa2 from "@/public/assets/pessoa2.png";
+import pessoa3 from "@/public/assets/pessoa3.png";
+import pessoa4 from "@/public/assets/pessoa4.png";
+import pessoa5 from "@/public/assets/pessoa5.png";
+import Image, { StaticImageData } from "next/image";
 
 const avatars: {
   alt: string;
-  src: string;
+  src: StaticImageData;
 }[] = [
   {
-    alt: "User",
+    alt: "Pessoa exemplo 1",
     // Ideally, load from a statically generated image for better SEO performance (import userImage from "@/public/userImage.png")
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3276&q=80",
+    src: pessoa1,
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    alt: "Pessoa exemplo 2",
+    src: pessoa2,
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    alt: "Pessoa exemplo 3",
+    src: pessoa3,
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    alt: "Pessoa exemplo 3",
+    src: pessoa4,
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3376&q=80",
+    alt: "Pessoa exemplo 4",
+    src: pessoa5,
   },
 ];
 
@@ -66,8 +71,8 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80">
-          <span className="font-semibold text-base-content">32</span> makers
-          ship faster
+          <span className="font-semibold text-base-content">+650</span> leituras
+          básicas feitas
         </div>
       </div>
     </div>
