@@ -9,5 +9,6 @@ module.exports = {
     "/og-image-256.*",
     "/icon.*",
     "/assets/*",
+    "/lp",
   ],
 };

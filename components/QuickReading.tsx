@@ -25,7 +25,11 @@ import toast from "react-hot-toast";
 import { NumberCompatibilityTable } from "./NumberCompatibilityTable";
 import Pricing from "./Pricing";
 
-export default function QuickReading() {
+export default function QuickReading({
+  isLandingPage,
+}: {
+  isLandingPage?: boolean;
+}) {
   const [isLoading, setIsLoading] = useState(false);
   const [reading, setReading] = useState<ReadingResponseType | null>(null);
   const [date, setDate] = useState<string | null>(null);
@@ -121,7 +125,7 @@ export default function QuickReading() {
   };
 
   return (
-    <main className="p-8 pb-24" id="reading">
+    <main className="p-8 pb-24 w-full" id="reading">
       <section className="max-w-3xl mx-auto space-y-8 flex flex-col items-center bg-white p-3 rounded-md">
         <h2 className="sm:text-5xl text-4xl font-extrabold">Leitura Básica</h2>
         <div className="flex flex-col gap-4">
@@ -154,7 +158,7 @@ export default function QuickReading() {
             <span>Seu nome</span>
             <input
               type="text"
-              placeholder="Seu nome"
+              placeholder="(Opcional) Seu nome"
               className="input input-bordered w-full max-w-xs"
               onChange={(e) => setName(e.target.value)}
             />
@@ -201,7 +205,10 @@ export default function QuickReading() {
                 </button>
               </div>
               {selectedTab === "numerology" && (
-                <NumerologyReading numerology={reading.numerology} />
+                <NumerologyReading
+                  numerology={reading.numerology}
+                  isLandingPage={isLandingPage}
+                />
               )}
               {selectedTab === "gematria" && (
                 <GematriaReading gematria={reading.gematria} />
@@ -265,7 +272,7 @@ export default function QuickReading() {
                 </button>
               </div>
             )}
-            <Pricing />
+            {!isLandingPage && <Pricing />}
           </>
         )}
       </section>
@@ -275,8 +282,10 @@ export default function QuickReading() {
 
 const NumerologyReading = ({
   numerology,
+  isLandingPage,
 }: {
   numerology: ReadingResponseType["numerology"];
+  isLandingPage?: boolean;
 }) => {
   const impureMasterNumberReduced = impureMasterNumberReducer(
     numerology.lifePath
@@ -394,15 +403,17 @@ const NumerologyReading = ({
             Ano pessoal {numerology.personalYear}:{" "}
             {personalYearInfoMap[numerology.personalYear]}
           </li>
-          <li>
-            <Link
-              className="underline text-secondary"
-              href={`/learn/${impureMasterNumberReduced}`}
-              target="_blank"
-            >
-              Aprenda mais sobre seu Caminho de Vida
-            </Link>
-          </li>
+          {!isLandingPage && (
+            <li>
+              <Link
+                className="underline text-secondary"
+                href={`/learn/${impureMasterNumberReduced}`}
+                target="_blank"
+              >
+                Aprenda mais sobre seu Caminho de Vida
+              </Link>
+            </li>
+          )}
         </ul>
       </ReadingExplanationCollapse>
       <ReadingExplanationCollapse title="Números harmônicos e desarmônicos">

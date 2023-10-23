@@ -1,4 +1,8 @@
 # *
+# Block all crawlers for /lp
+User-agent: *
+Disallow: /lp
+
 User-agent: *
 Allow: /
 

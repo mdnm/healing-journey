@@ -21,7 +21,7 @@ const lifePaths = [
   { href: "/learn/33", label: "Número 33: O MESTRE PROFESSOR" },
 ];
 
-const Footer = () => {
+const Footer = ({ showOnlyLegal }: { showOnlyLegal?: boolean }) => {
   return (
     <footer className="bg-base-300 border-t border-base-content/10">
       <div className="max-w-7xl mx-auto px-8 py-24">
@@ -54,48 +54,52 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex-grow flex flex-wrap justify-center -mb-10 md:mt-0 mt-10 text-center">
-            <div className="lg:w-1/4 w-full px-4">
-              <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
-                LINKS
-              </div>
+            {!showOnlyLegal && (
+              <>
+                <div className="lg:w-1/4 w-full px-4">
+                  <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
+                    LINKS
+                  </div>
 
-              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                {config.mailgun.supportEmail && (
-                  <a
-                    href={`mailto:${config.mailgun.supportEmail}`}
-                    target="_blank"
-                    className="link link-hover"
-                    aria-label="Contate o suporte"
-                  >
-                    Suporte
-                  </a>
-                )}
-                <Link href="/learn" className="link link-hover">
-                  Aprenda Mais
-                </Link>
-                <Link href="/pricing" className="link link-hover">
-                  Produtos
-                </Link>
-              </div>
-            </div>
+                  <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+                    {config.mailgun.supportEmail && (
+                      <a
+                        href={`mailto:${config.mailgun.supportEmail}`}
+                        target="_blank"
+                        className="link link-hover"
+                        aria-label="Contate o suporte"
+                      >
+                        Suporte
+                      </a>
+                    )}
+                    <Link href="/learn" className="link link-hover">
+                      Aprenda Mais
+                    </Link>
+                    <Link href="/pricing" className="link link-hover">
+                      Produtos
+                    </Link>
+                  </div>
+                </div>
 
-            <div className="lg:w-1/4 w-full px-4">
-              <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
-                CAMINHOS DE VIDA
-              </div>
+                <div className="lg:w-1/4 w-full px-4">
+                  <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">
+                    CAMINHOS DE VIDA
+                  </div>
 
-              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                {lifePaths.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="link link-hover text-left"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+                  <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+                    {lifePaths.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="link link-hover text-left"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
 
             <div className="lg:w-1/4 w-full px-4">
               <div className="footer-title font-semibold text-base-content opacity-75 tracking-widest text-sm md:text-left mb-3">

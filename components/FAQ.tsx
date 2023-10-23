@@ -9,6 +9,7 @@ import { useRef, useState } from "react";
 interface FAQItemProps {
   question: string;
   answer: JSX.Element;
+  hideOnLP?: boolean;
 }
 
 const faqList: FAQItemProps[] = [
@@ -153,6 +154,7 @@ const faqList: FAQItemProps[] = [
         </p>
       </div>
     ),
+    hideOnLP: true,
   },
   {
     question: "Posso pegar um reembolso?",
@@ -231,7 +233,7 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
   );
 };
 
-const FAQ = () => {
+const FAQ = ({ isLandingPage }: { isLandingPage?: boolean }) => {
   return (
     <section className="bg-white" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
@@ -243,9 +245,11 @@ const FAQ = () => {
         </div>
 
         <ul className="basis-1/2">
-          {faqList.map((item, i) => (
-            <FaqItem key={i} item={item} />
-          ))}
+          {faqList
+            .filter((item) => !isLandingPage || !item.hideOnLP)
+            .map((item, i) => (
+              <FaqItem key={i} item={item} />
+            ))}
         </ul>
       </div>
     </section>
