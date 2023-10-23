@@ -71,8 +71,8 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80">
-          <span className="font-semibold text-base-content">+850</span> leituras
-          básicas feitas
+          <span className="font-semibold text-base-content">+1000</span>{" "}
+          leituras básicas feitas
         </div>
       </div>
     </div>
