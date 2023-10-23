@@ -9,7 +9,6 @@ import { useRef, useState } from "react";
 interface FAQItemProps {
   question: string;
   answer: JSX.Element;
-  hideOnLP?: boolean;
 }
 
 const faqList: FAQItemProps[] = [
@@ -125,38 +124,6 @@ const faqList: FAQItemProps[] = [
     ),
   },
   {
-    question: "Eu preciso comprar uma leitura avançada?",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        <p>
-          O objetivo desse trabalho é difundir conhecimento sobre o universo
-          para resolver problemas e melhorar a vida das pessoas.
-        </p>
-        <p>
-          Nós oferecemos uma{" "}
-          <span className="font-bold">leitura simplificada gratuitamente</span>{" "}
-          para você testar esse conhecimento antes de se aprofundar nos estudos.
-        </p>
-        <p>
-          Se aprofundando nos estudos você terá{" "}
-          <span className="font-bold">todas as informações necessárias</span>{" "}
-          para fazer uma leitura avançada por conta própria.
-        </p>
-        <p>
-          Se você não tem tempo para estudar a fundo ou está confuso com alguma
-          informação, você pode comprar uma leitura avançada para ter uma
-          explicação detalhada e personalizada.
-        </p>
-        <p>
-          O dinheiro arrecadado é usado para manter o site no ar, criar novas
-          funcionalidades, trazer mais informações e fazer marketing para que
-          mais pessoas possam se beneficiar.
-        </p>
-      </div>
-    ),
-    hideOnLP: true,
-  },
-  {
     question: "Posso pegar um reembolso?",
     answer: (
       <div className="space-y-2 leading-relaxed">
@@ -233,7 +200,7 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
   );
 };
 
-const FAQ = ({ isLandingPage }: { isLandingPage?: boolean }) => {
+const FAQ = () => {
   return (
     <section className="bg-white" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
@@ -245,11 +212,9 @@ const FAQ = ({ isLandingPage }: { isLandingPage?: boolean }) => {
         </div>
 
         <ul className="basis-1/2">
-          {faqList
-            .filter((item) => !isLandingPage || !item.hideOnLP)
-            .map((item, i) => (
-              <FaqItem key={i} item={item} />
-            ))}
+          {faqList.map((item, i) => (
+            <FaqItem key={i} item={item} />
+          ))}
         </ul>
       </div>
     </section>

@@ -33,7 +33,7 @@ const LandingPage = () => {
           <QuickReading isLandingPage />
         </section>
         <LandingPageCTA />
-        <FAQ isLandingPage />
+        <FAQ />
       </main>
       <Footer showOnlyLegal />
     </>
