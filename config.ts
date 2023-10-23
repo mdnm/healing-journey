@@ -23,15 +23,15 @@ const config = {
         priceId:
           process.env.NODE_ENV === "development"
             ? "price_1NywbBBy6IHSlSgzJKuHoNc0"
-            : "price_1Nz3CUBy6IHSlSgzo76Ne8h1",
+            : "price_1O4TMDBy6IHSlSgzaoAvfIXb",
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Leitura Avançada (arquivo)",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
         description: "Entrega em até 48h por email",
         // The price you want to display, the one user will be charged on Stripe.
-        price: 28,
+        price: 188,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 80,
+        priceAnchor: 280,
         isFeatured: true,
         features: [
           {
@@ -58,15 +58,15 @@ const config = {
         priceId:
           process.env.NODE_ENV === "development"
             ? "price_1Nyz24By6IHSlSgzrJYDQ36D"
-            : "price_1Nz3D1By6IHSlSgzm51J9iEA",
+            : "price_1O4TPMBy6IHSlSgzTNMey7RA",
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Leitura Avançada (conversa)",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
         description: "Conversa online de aprox. 53 min. Mediante a reserva",
         // The price you want to display, the one user will be charged on Stripe.
-        price: 107,
+        price: 350,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 206,
+        priceAnchor: 440,
         features: [
           {
             name: "O mesmo da leitura avançada por arquivo +",
