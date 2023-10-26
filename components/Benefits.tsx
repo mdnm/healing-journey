@@ -104,7 +104,6 @@ const Benefits = () => {
           <li>Abrir uma sociedade</li>
           <li>Comprar um bem (carro, casa, apartamento)</li>
           <li>Contratar alguém</li>
-          <li>Contratar alguém</li>
           <li>Contratar um serviço</li>
           <li>etc...</li>
         </ul>
