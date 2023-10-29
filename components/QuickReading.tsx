@@ -376,14 +376,14 @@ const NumerologyReading = ({
             <div className="flex flex-wrap gap-2">
               {lifePathInfoMap[impureMasterNumberReduced].positiveQualities.map(
                 (quality) => (
-                  <span key={quality} className="badge badge-success">
+                  <span key={quality} className="badge py-6 badge-success">
                     {quality}
                   </span>
                 )
               )}
               {lifePathInfoMap[impureMasterNumberReduced].negativeQualities.map(
                 (quality) => (
-                  <span key={quality} className="badge badge-error">
+                  <span key={quality} className="badge py-6 badge-error">
                     {quality}
                   </span>
                 )
@@ -396,14 +396,14 @@ const NumerologyReading = ({
               <div className="flex flex-wrap gap-2">
                 {lifePathInfoMap[numerology.lifePath].positiveQualities.map(
                   (quality) => (
-                    <span key={quality} className="badge badge-success">
+                    <span key={quality} className="badge py-6 badge-success">
                       {quality}
                     </span>
                   )
                 )}
                 {lifePathInfoMap[numerology.lifePath].negativeQualities.map(
                   (quality) => (
-                    <span key={quality} className="badge badge-error">
+                    <span key={quality} className="badge py-6 badge-error">
                       {quality}
                     </span>
                   )
@@ -417,14 +417,14 @@ const NumerologyReading = ({
               {partialEnergyInfoMap[
                 numerology.partialEnergy
               ].positiveQualities.map((quality) => (
-                <span key={quality} className="badge badge-success">
+                <span key={quality} className="badge py-6 badge-success">
                   {quality}
                 </span>
               ))}
               {partialEnergyInfoMap[
                 numerology.partialEnergy
               ].negativeQualities.map((quality) => (
-                <span key={quality} className="badge badge-error">
+                <span key={quality} className="badge py-6 badge-error">
                   {quality}
                 </span>
               ))}
@@ -543,14 +543,14 @@ const GematriaReading = ({
               {partialEnergyInfoMap[
                 gematria.firstLetterLowercaseValueReduced
               ].positiveQualities.map((quality) => (
-                <span key={quality} className="badge badge-success">
+                <span key={quality} className="badge py-6 badge-success">
                   {quality}
                 </span>
               ))}
               {partialEnergyInfoMap[
                 gematria.firstLetterLowercaseValueReduced
               ].negativeQualities.map((quality) => (
-                <span key={quality} className="badge badge-error">
+                <span key={quality} className="badge py-6 badge-error">
                   {quality}
                 </span>
               ))}
@@ -567,14 +567,14 @@ const GematriaReading = ({
               {partialEnergyInfoMap[
                 gematria.lowerCaseNameValueReduced
               ].positiveQualities.map((quality) => (
-                <span key={quality} className="badge badge-success">
+                <span key={quality} className="badge py-6 badge-success">
                   {quality}
                 </span>
               ))}
               {partialEnergyInfoMap[
                 gematria.lowerCaseNameValueReduced
               ].negativeQualities.map((quality) => (
-                <span key={quality} className="badge badge-error">
+                <span key={quality} className="badge py-6 badge-error">
                   {quality}
                 </span>
               ))}
@@ -654,7 +654,7 @@ const EasternAstrologyReading = ({
         Ano atual {zodiac.easternZodiacCurrentYear} (
         {currentYearEnergy === "desarmônico" ? (
           <div className="indicator">
-            <span className="indicator-item badge badge-error">!!!</span>
+            <span className="indicator-item badge py-6 badge-error">!!!</span>
             <span>{currentYearEnergy}</span>
           </div>
         ) : (
@@ -666,7 +666,7 @@ const EasternAstrologyReading = ({
         Próximo ano {zodiac.easternZodiacNextYear} (
         {nextYearEnergy === "desarmônico" ? (
           <div className="indicator">
-            <span className="indicator-item badge badge-error">!!!</span>
+            <span className="indicator-item badge py-6 badge-error">!!!</span>
             <span>{nextYearEnergy}</span>
           </div>
         ) : (
@@ -780,14 +780,14 @@ const EasternAstrologyReading = ({
             {signToCharacteristicsMap[
               zodiac.easternZodiacYear.sign
             ].positiveQualities.map((quality) => (
-              <span key={quality} className="badge badge-success">
+              <span key={quality} className="badge py-6 badge-success">
                 {quality}
               </span>
             ))}
             {signToCharacteristicsMap[
               zodiac.easternZodiacYear.sign
             ].negativeQualities.map((quality) => (
-              <span key={quality} className="badge badge-error">
+              <span key={quality} className="badge py-6 badge-error">
                 {quality}
               </span>
             ))}
@@ -799,14 +799,14 @@ const EasternAstrologyReading = ({
             {easternElementInfoMap[
               zodiac.easternZodiacYear.element
             ].positiveQualities.map((quality) => (
-              <span key={quality} className="badge badge-success">
+              <span key={quality} className="badge py-6 badge-success">
                 {quality}
               </span>
             ))}
             {easternElementInfoMap[
               zodiac.easternZodiacYear.element
             ].negativeQualities.map((quality) => (
-              <span key={quality} className="badge badge-error">
+              <span key={quality} className="badge py-6 badge-error">
                 {quality}
               </span>
             ))}
