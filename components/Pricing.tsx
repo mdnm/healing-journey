@@ -12,7 +12,7 @@ const Pricing = () => {
         <div className="flex flex-col text-center w-full mb-20">
           <p className="font-medium text-primary mb-8">Produtos</p>
           <h2 className="font-bold text-3xl lg:text-5xl tracking-tight">
-            Uma leitura avançada para você que não tem tempo para estudar
+            Sem Tempo Para Estudar?
           </h2>
         </div>
 

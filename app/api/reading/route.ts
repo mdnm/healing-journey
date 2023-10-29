@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const hour = Number(body.hour);
+  const hour = Number(body.hour ?? 0);
 
   if (body.hour && isNaN(hour)) {
     return NextResponse.json(

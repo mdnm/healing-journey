@@ -4,7 +4,6 @@ import { ReadingResponseType } from "@/app/api/reading/route";
 import * as ga from "@/gtag";
 import apiClient from "@/libs/api";
 import {
-  ANIMAL_HOURS,
   Animal,
   AnimalHour,
   easternElementInfoMap,
@@ -22,7 +21,6 @@ import {
 import Link from "next/link";
 import { ReactNode, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { NumberCompatibilityTable } from "./NumberCompatibilityTable";
 import Pricing from "./Pricing";
 
 export default function QuickReading({
@@ -34,7 +32,6 @@ export default function QuickReading({
   const [reading, setReading] = useState<ReadingResponseType | null>(null);
   const [date, setDate] = useState<string | null>(null);
   const [name, setName] = useState<string | null>(null);
-  const [hour, setHour] = useState<number | null>(null);
   const [rating, setRating] = useState(5);
   const [ratingReason, setRatingReason] = useState("");
   const [hasRated, setHasRated] = useState(false);
@@ -57,7 +54,6 @@ export default function QuickReading({
         ReadingResponseType
       >("/reading", {
         date: formattedDate,
-        hour,
         name,
       });
 
@@ -65,7 +61,6 @@ export default function QuickReading({
         action: "reading",
         value: JSON.stringify({
           date,
-          hour,
           name,
         }),
       });
@@ -78,7 +73,6 @@ export default function QuickReading({
         action: "reading-error",
         value: JSON.stringify({
           date,
-          hour,
           name,
           error: error?.message || error,
         }),
@@ -128,7 +122,7 @@ export default function QuickReading({
     <main className="p-8 pb-24 w-full" id="reading">
       <section className="max-w-3xl mx-auto space-y-8 flex flex-col items-center bg-white p-3 rounded-md">
         <h2 className="sm:text-5xl text-4xl font-extrabold">Leitura Básica</h2>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full">
           <div className="flex flex-col items-center gap-2 w-full">
             <span>Sua data de nascimento</span>
             <input
@@ -138,7 +132,7 @@ export default function QuickReading({
               onChange={(e) => setDate(e.target.value)}
             />
           </div>
-          <div className="flex flex-col items-center gap-2 w-full">
+          {/* <div className="flex flex-col items-center gap-2 w-full">
             <select
               className="select select-bordered w-full max-w-xs"
               onChange={(e) => setHour(Number(e.target.value))}
@@ -153,12 +147,12 @@ export default function QuickReading({
             <span>
               (usada somente para descobrir as horas harmônicas e desarmônicas)
             </span>
-          </div>
+          </div> */}
           <div className="flex flex-col items-center gap-2 w-full">
-            <span>Seu nome</span>
+            <span>Seu primeiro nome ou apelido</span>
             <input
               type="text"
-              placeholder="(Opcional) Seu nome"
+              placeholder="(Opcional) Seu primeiro nome ou apelido"
               className="input input-bordered w-full max-w-xs"
               onChange={(e) => setName(e.target.value)}
             />
@@ -214,7 +208,7 @@ export default function QuickReading({
                 <GematriaReading gematria={reading.gematria} />
               )}
               {selectedTab === "eastern-zodiac" && (
-                <EasternAstrologyReading zodiac={reading.zodiac} hour={hour} />
+                <EasternAstrologyReading zodiac={reading.zodiac} />
               )}
             </div>
             {!hasRated && (
@@ -257,7 +251,7 @@ export default function QuickReading({
                   />
                 </div>
                 <textarea
-                  placeholder="O quê você mais gostou/não gostou? Essa leitura fez sentido?"
+                  placeholder="(Opcional) O quê você mais gostou/não gostou? Essa leitura fez sentido?"
                   className="textarea textarea-bordered w-full max-w-xs"
                   onChange={(e) => setRatingReason(e.target.value)}
                 ></textarea>
@@ -294,23 +288,23 @@ const NumerologyReading = ({
   return (
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
-        Caminho de vida:{" "}
-        {numerology.lifePathUnreduced !== numerology.lifePath
+        Caminho de vida: {numerology.lifePath}
+        {/* {numerology.lifePathUnreduced !== numerology.lifePath
           ? `${numerology.lifePathUnreduced}/${numerology.lifePath}`
-          : numerology.lifePath}{" "}
+          : numerology.lifePath}{" "} */}
         {numerology.isImpureMasterNumber &&
           `Impuro, vibrará mais como ${impureMasterNumberReduced}`}
       </p>
       <p className="text-lg text-center">
-        Energia parcial (do dia):{" "}
-        {numerology.partialEnergyUnreduced !== numerology.partialEnergy
+        Energia parcial (do dia): {numerology.partialEnergy}
+        {/* {numerology.partialEnergyUnreduced !== numerology.partialEnergy
           ? `${numerology.partialEnergyUnreduced}/${numerology.partialEnergy}`
-          : numerology.partialEnergy}
+          : numerology.partialEnergy} */}
       </p>
       <p className="text-lg text-center">
         Ano pessoal: {numerology.personalYear}
       </p>
-      <ReadingExplanationCollapse title="Explicações gerais e recomendações">
+      {/* <ReadingExplanationCollapse title="Explicações gerais e recomendações">
         <ul className="list-disc pl-4">
           <li>
             Estamos num mundo onde tudo é energia/frequência e pode ser reduzido
@@ -357,9 +351,9 @@ const NumerologyReading = ({
             se você evoluiu.
           </li>
         </ul>
-      </ReadingExplanationCollapse>
-      <ReadingExplanationCollapse title="Explicações">
-        <ul className="list-disc pl-4">
+      </ReadingExplanationCollapse> */}
+      <div className="p-5 pt-0">
+        <ul className="list-disc pl-4 flex flex-col gap-3">
           <li>
             Caminho de vida: Seu propósito nessa encarnação, a energia que mais
             te afeta
@@ -372,24 +366,69 @@ const NumerologyReading = ({
             contra ela (Ex. começar coisas num ano pessoal 9, fazer algo ilegal
             num ano pessoal 4){" "}
           </li>
-          <li>
-            O ultimo digito do seu ano de nascimento diz algo sobre sua
-            infância. Ex. alguém que o ano termina em 5 (como 2005)
-            provavelmente experienciou muitas mudanças e viagens.
-          </li>
+          {/* <li>
+          O ultimo digito do seu ano de nascimento diz algo sobre sua infância.
+          Ex. alguém que o ano termina em 5 (como 2005) provavelmente
+          experienciou muitas mudanças e viagens.
+        </li> */}
           <li>
             Caminho de vida {impureMasterNumberReduced}:{" "}
-            {lifePathInfoMap[impureMasterNumberReduced]}
+            <div className="flex flex-wrap gap-2">
+              {lifePathInfoMap[impureMasterNumberReduced].positiveQualities.map(
+                (quality) => (
+                  <span key={quality} className="badge badge-success">
+                    {quality}
+                  </span>
+                )
+              )}
+              {lifePathInfoMap[impureMasterNumberReduced].negativeQualities.map(
+                (quality) => (
+                  <span key={quality} className="badge badge-error">
+                    {quality}
+                  </span>
+                )
+              )}
+            </div>
           </li>
           {numerology.isImpureMasterNumber && (
             <li>
               Terá energia parcial {numerology.lifePath}:{" "}
-              {lifePathInfoMap[numerology.lifePath]}
+              <div className="flex flex-wrap gap-2">
+                {lifePathInfoMap[numerology.lifePath].positiveQualities.map(
+                  (quality) => (
+                    <span key={quality} className="badge badge-success">
+                      {quality}
+                    </span>
+                  )
+                )}
+                {lifePathInfoMap[numerology.lifePath].negativeQualities.map(
+                  (quality) => (
+                    <span key={quality} className="badge badge-error">
+                      {quality}
+                    </span>
+                  )
+                )}
+              </div>
             </li>
           )}
           <li>
             Energia parcial (do dia) {numerology.partialEnergy}:{" "}
-            {partialEnergyInfoMap[numerology.partialEnergy]}
+            <div className="flex flex-wrap gap-2">
+              {partialEnergyInfoMap[
+                numerology.partialEnergy
+              ].positiveQualities.map((quality) => (
+                <span key={quality} className="badge badge-success">
+                  {quality}
+                </span>
+              ))}
+              {partialEnergyInfoMap[
+                numerology.partialEnergy
+              ].negativeQualities.map((quality) => (
+                <span key={quality} className="badge badge-error">
+                  {quality}
+                </span>
+              ))}
+            </div>
           </li>
           {numerology.partialEnergyUnreduced === 28 && (
             <li>
@@ -415,8 +454,8 @@ const NumerologyReading = ({
             </li>
           )}
         </ul>
-      </ReadingExplanationCollapse>
-      <ReadingExplanationCollapse title="Números harmônicos e desarmônicos">
+      </div>
+      {/* <ReadingExplanationCollapse title="Números harmônicos e desarmônicos">
         <p className="text-lg text-center font-bold">
           Tabela de harmônias baseado no caminho de vida
         </p>
@@ -430,7 +469,7 @@ const NumerologyReading = ({
         <NumberCompatibilityTable
           numberCompatibility={numerology.dayCompatibility}
         />
-      </ReadingExplanationCollapse>
+      </ReadingExplanationCollapse> */}
     </div>
   );
 };
@@ -444,31 +483,32 @@ const GematriaReading = ({
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
         Energia da primeira letra (a mais impactante):{" "}
-        {gematria.firstLetterLowercaseValue !==
+        {gematria.firstLetterLowercaseValueReduced}
+        {/* {gematria.firstLetterLowercaseValue !==
         gematria.firstLetterLowercaseValueReduced
           ? `${gematria.firstLetterLowercaseValue}/${gematria.firstLetterLowercaseValueReduced}`
-          : gematria.firstLetterLowercaseValueReduced}
+          : gematria.firstLetterLowercaseValueReduced} */}
       </p>
-      <p className="text-lg text-center">
+      {/* <p className="text-lg text-center">
         Energia da primeira letra (considerando-a capitalizada):{" "}
         {gematria.firstLetterUppercaseValue !==
         gematria.firstLetterUppercaseValueReduced
           ? `${gematria.firstLetterUppercaseValue}/${gematria.firstLetterUppercaseValueReduced}`
           : gematria.firstLetterUppercaseValueReduced}
-      </p>
+      </p> */}
       <p className="text-lg text-center">
-        Energia do nome:{" "}
-        {gematria.lowerCaseNameValue !== gematria.lowerCaseNameValueReduced
+        Energia do nome: {gematria.lowerCaseNameValueReduced}
+        {/* {gematria.lowerCaseNameValue !== gematria.lowerCaseNameValueReduced
           ? `${gematria.lowerCaseNameValue}/${gematria.lowerCaseNameValueReduced}`
-          : gematria.lowerCaseNameValueReduced}
+          : gematria.lowerCaseNameValueReduced} */}
       </p>
-      <p className="text-lg text-center">
+      {/* <p className="text-lg text-center">
         Energia do nome (considerando a primeira letra capitalizada):{" "}
         {gematria.upperCaseNameValue !== gematria.upperCaseNameValueReduced
           ? `${gematria.upperCaseNameValue}/${gematria.upperCaseNameValueReduced}`
           : gematria.upperCaseNameValueReduced}
-      </p>
-      <ReadingExplanationCollapse title="Explicações gerais e recomendações">
+      </p> */}
+      {/* <ReadingExplanationCollapse title="Explicações gerais e recomendações">
         <ul className="list-disc pl-4">
           <li>
             Estamos num mundo onde tudo é energia/frequência e pode ser reduzido
@@ -493,28 +533,58 @@ const GematriaReading = ({
             utilizam seus nomes de registro.
           </li>
         </ul>
-      </ReadingExplanationCollapse>
-      <ReadingExplanationCollapse title="Explicações">
-        <ul className="list-disc pl-4">
+      </ReadingExplanationCollapse> */}
+      <div className="p-5 pt-0">
+        <ul className="list-disc pl-4 flex flex-col gap-3">
           <li>
             Energia da primeira letra{" "}
             {gematria.firstLetterLowercaseValueReduced}:{" "}
-            {partialEnergyInfoMap[gematria.firstLetterLowercaseValueReduced]}
+            <div className="flex flex-wrap gap-2">
+              {partialEnergyInfoMap[
+                gematria.firstLetterLowercaseValueReduced
+              ].positiveQualities.map((quality) => (
+                <span key={quality} className="badge badge-success">
+                  {quality}
+                </span>
+              ))}
+              {partialEnergyInfoMap[
+                gematria.firstLetterLowercaseValueReduced
+              ].negativeQualities.map((quality) => (
+                <span key={quality} className="badge badge-error">
+                  {quality}
+                </span>
+              ))}
+            </div>
           </li>
-          <li>
+          {/* <li>
             Energia da primeira letra capitalizada{" "}
             {gematria.firstLetterUppercaseValueReduced}:{" "}
             {partialEnergyInfoMap[gematria.firstLetterUppercaseValueReduced]}
-          </li>
+          </li> */}
           <li>
             Energia do nome {gematria.lowerCaseNameValueReduced}:{" "}
-            {partialEnergyInfoMap[gematria.lowerCaseNameValueReduced]}
+            <div className="flex flex-wrap gap-2">
+              {partialEnergyInfoMap[
+                gematria.lowerCaseNameValueReduced
+              ].positiveQualities.map((quality) => (
+                <span key={quality} className="badge badge-success">
+                  {quality}
+                </span>
+              ))}
+              {partialEnergyInfoMap[
+                gematria.lowerCaseNameValueReduced
+              ].negativeQualities.map((quality) => (
+                <span key={quality} className="badge badge-error">
+                  {quality}
+                </span>
+              ))}
+            </div>
           </li>
-          <li>
+          {/* <li>
             Energia do nome com a primeira letra capitalizada{" "}
             {gematria.upperCaseNameValueReduced}:{" "}
             {partialEnergyInfoMap[gematria.upperCaseNameValueReduced]}
-          </li>
+          </li> */}
           {(gematria.firstLetterUppercaseValue === 28 ||
             gematria.lowerCaseNameValue === 28 ||
             gematria.upperCaseNameValue === 28) && (
@@ -526,7 +596,7 @@ const GematriaReading = ({
             </li>
           )}
         </ul>
-      </ReadingExplanationCollapse>
+      </div>
     </div>
   );
 };
@@ -536,7 +606,7 @@ const EasternAstrologyReading = ({
   hour,
 }: {
   zodiac: ReadingResponseType["zodiac"];
-  hour: number;
+  hour?: number;
 }) => {
   const currentYearEnergy = isEnemyOrFriendSign(
     zodiac.easternZodiacCurrentYear,
@@ -558,18 +628,18 @@ const EasternAstrologyReading = ({
   return (
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
-        Signo {zodiac.easternZodiacYear.sign} {signEmoji} (energia número{" "}
-        {zodiac.easternZodiacYear.numberEnergy}) -{" "}
+        Signo {zodiac.easternZodiacYear.sign} {signEmoji} -{" "}
+        {/*(energia número {zodiac.easternZodiacYear.numberEnergy})*/}
         {zodiac.easternZodiacYear.element} {elementEmoji}
       </p>
       <p className="text-lg text-center">
         Signo mais desarmônico (inimigo) {zodiac.easternEnemy}{" "}
         {signToEmojiMap[zodiac.easternEnemy]}
       </p>
-      <p className="text-lg text-center">
+      {/* <p className="text-lg text-center">
         Signo para se evitar (neutro) {zodiac.easternAvoid}{" "}
         {signToEmojiMap[zodiac.easternAvoid]}
-      </p>
+      </p> */}
       <p className="text-lg text-center">
         Signos harmônicos{" "}
         {zodiac.friendSigns
@@ -604,9 +674,9 @@ const EasternAstrologyReading = ({
         )}
         ) {signToEmojiMap[zodiac.easternZodiacNextYear]}
       </p>
-      <ReadingExplanationCollapse title="ATENÇÃO! LEIA ESSAS RECOMENDAÇÕES">
-        <ul className="list-disc pl-4">
-          <li>
+      <div className="p-5 pt-0">
+        <ul className="list-disc pl-4 flex flex-col gap-3">
+          {/* <li>
             Tudo possuí uma energia animal associada a si, objetos, lugares,
             marcas, pessoas, animais, etc. Para descobrir a energia de uma
             empresa/cidade/objeto, procure pelo seu ano de criação ou marcos
@@ -621,7 +691,7 @@ const EasternAstrologyReading = ({
               <li>Astrologia Oriental</li>
               <li>Astrologia Ocidental</li>
             </ol>
-          </li>
+          </li> */}
           <li>
             <span className="font-bold">
               O quê significa uma energia ser desarmônica ou inimiga?
@@ -632,7 +702,7 @@ const EasternAstrologyReading = ({
             quando postas junto criam muito contraste. Esse é o mesmo paralelo
             que pode ser feito entre seu zodíaco e o de outras pessoas/coisas.
           </li>
-          <li>
+          {/* <li>
             Quando percebemos muitas energias inimigas dentro da família,
             geralmente é karma sendo resgatado.
           </li>
@@ -680,7 +750,7 @@ const EasternAstrologyReading = ({
             não deveria comer frango. <br /> Exemplo 2: uma Cobra (signo) não
             deveria comer porco ou um Dragão (signo) não deveria ter um cachorro
             de estimação.
-          </li>
+          </li> */}
           <li>
             É melhor manter-se discreto, não correr riscos, ficar de boa e não
             fazer ou começar nada importante nos anos do seu inimigo. Armadilhas
@@ -688,37 +758,65 @@ const EasternAstrologyReading = ({
             lidar com o trio dos seus inimigos, pois eles ajudarão o seu inimigo
             no seu ano inimigo.
           </li>
-          <li>
+          {/* <li>
             As mesmas recomendações valem para quando você estiver num mês ou
             horário inimigo. (Inclusive pessoas nascidas no seu mês inimigo)
           </li>
           <li>
             Se você tiver um bom ano inimigo, o seu ano pessoal do animal será
             um mau ano.
-          </li>
+          </li> */}
           <li>
             Você pode aprender muito com o seu signo inimigo, pois onde você é
             fraco, ele é forte, MAS é melhor evitar o seu signo inimigo ou
             qualquer coisa fundada sob o ano do seu signo inimigo. Energia
-            inimiga é perigosa e afetará sua saúde, carreira, negócios, etc.{" "}
-            <span className="font-bold">Ame-os de longe ❤️</span>
+            inimiga é perigosa e poderá afetará sua saúde, carreira, negócios,
+            etc.
           </li>
         </ul>
-      </ReadingExplanationCollapse>
-      <ReadingExplanationCollapse title="Explicações">
-        <p className="mb-3">
+        <p className="mb-3 mt-3">
           {zodiac.easternZodiacYear.sign} {signEmoji}:{" "}
-          {signToCharacteristicsMap[zodiac.easternZodiacYear.sign]}
+          <div className="flex flex-wrap gap-2">
+            {signToCharacteristicsMap[
+              zodiac.easternZodiacYear.sign
+            ].positiveQualities.map((quality) => (
+              <span key={quality} className="badge badge-success">
+                {quality}
+              </span>
+            ))}
+            {signToCharacteristicsMap[
+              zodiac.easternZodiacYear.sign
+            ].negativeQualities.map((quality) => (
+              <span key={quality} className="badge badge-error">
+                {quality}
+              </span>
+            ))}
+          </div>
         </p>
         <p className="mb-3">
           {zodiac.easternZodiacYear.element} {elementEmoji}:{" "}
-          {easternElementInfoMap[zodiac.easternZodiacYear.element]}
+          <div className="flex flex-wrap gap-2">
+            {easternElementInfoMap[
+              zodiac.easternZodiacYear.element
+            ].positiveQualities.map((quality) => (
+              <span key={quality} className="badge badge-success">
+                {quality}
+              </span>
+            ))}
+            {easternElementInfoMap[
+              zodiac.easternZodiacYear.element
+            ].negativeQualities.map((quality) => (
+              <span key={quality} className="badge badge-error">
+                {quality}
+              </span>
+            ))}
+          </div>
         </p>
-        <p className="text-black font-bold">Seu trio:</p>
+        {/* <p className="text-black font-bold">Seu trio:</p>
         <p className="mb-3">Características: {characteristics}</p>
-        <p>Juntos num trio: {together}</p>
-      </ReadingExplanationCollapse>
-      <ReadingExplanationCollapse title="Meses e horas harmônicas e desarmônicas">
+        <p>Juntos num trio: {together}</p> */}
+      </div>
+      {/* <ReadingExplanationCollapse title="Meses e horas harmônicas e desarmônicas">
         <div className="text-lg text-center">
           <p className="text-center">Meses harmônicos:</p>
           <ul className="flex flex-col items-center list-disc">
@@ -750,7 +848,7 @@ const EasternAstrologyReading = ({
             </p>{" "}
           </>
         )}
-      </ReadingExplanationCollapse>
+      </ReadingExplanationCollapse> */}
     </div>
   );
 };
