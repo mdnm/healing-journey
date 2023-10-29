@@ -288,7 +288,7 @@ const NumerologyReading = ({
   return (
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
-        Caminho de vida: {numerology.lifePath}
+        Caminho de vida: {numerology.lifePath}{" "}
         {/* {numerology.lifePathUnreduced !== numerology.lifePath
           ? `${numerology.lifePathUnreduced}/${numerology.lifePath}`
           : numerology.lifePath}{" "} */}
