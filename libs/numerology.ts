@@ -525,6 +525,11 @@ export const textReducer = (number: number): NumberEnergy => {
     return number;
   }
 
+  // 20 is a hidden 11.
+  if (number === 20) {
+    return 11;
+  }
+
   const numberString = number.toString();
   const numberArray = numberString.split("");
   const numberArrayNumber = numberArray.map((number) => Number(number));
