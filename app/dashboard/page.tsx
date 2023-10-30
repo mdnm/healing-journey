@@ -16,15 +16,13 @@ export default async function Dashboard() {
     data: { session },
   } = await supabase.auth.getSession();
 
-  const {
-    data: { customerId },
-  } = await supabase
+  const { data } = await supabase
     .from("users")
     .select()
     .eq("id", session.user.id)
     .single<User>();
 
-  if (customerId !== "admin") {
+  if (data?.customerId !== "admin") {
     redirect(config.auth.loginUrl);
   }
 
