@@ -249,7 +249,7 @@ export const lifePathInfoMap: Record<
       "Trás a melhor versão dos outros",
       "Artístico",
       "Compassivo",
-      "Possuí um pouco da energia dos outros números (1+2+3+4+5+6+7+8=36 e 3+6=9)",
+      "Possuí um pouco da energia dos outros números",
     ],
     negativeQualities: [
       "Introvertido",
