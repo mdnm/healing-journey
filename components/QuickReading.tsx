@@ -654,7 +654,7 @@ const EasternAstrologyReading = ({
         Ano atual {zodiac.easternZodiacCurrentYear} (
         {currentYearEnergy === "desarmônico" ? (
           <div className="indicator">
-            <span className="indicator-item badge py-6 badge-error">!!!</span>
+            <span className="indicator-item badge badge-error">!!!</span>
             <span>{currentYearEnergy}</span>
           </div>
         ) : (
