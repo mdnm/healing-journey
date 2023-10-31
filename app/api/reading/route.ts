@@ -45,7 +45,6 @@ export type ReadingResponseType = {
     isImpureMasterNumber: boolean;
     partialEnergyUnreduced: NumberEnergy;
     partialEnergy: NumberEnergy;
-    lifeStage: NumberEnergy;
     personalYear: LifePath;
     lifePathCompatibility: NumberCompatibility;
     dayCompatibility: NumberCompatibility;
@@ -63,6 +62,20 @@ export type ReadingResponseType = {
     enemyHour: AnimalHour;
     easternZodiacCurrentYear: Animal;
     easternZodiacNextYear: Animal;
+  };
+  additional?: {
+    day: NumberEnergy;
+    reducedMonth: NumberEnergy;
+    reducedYear: NumberEnergy;
+    lifePathWithoutReducingDay: NumberEnergy;
+    attitudeNumber: NumberEnergy;
+    universalMonth: NumberEnergy;
+    personalMonth: NumberEnergy;
+    lifeStage: NumberEnergy;
+    currentAge: NumberEnergy;
+    lifePathStageNumber: NumberEnergy;
+    stagesString: string;
+    tropicalSign: string;
   };
 };
 
@@ -193,6 +206,8 @@ export async function POST(req: NextRequest) {
     reducedDay + reducedMonth + numberReducer(personalYearForCalculation)
   );
 
+  const personalMonth = lifePathReducer(reducedMonth + personalYear);
+
   const firstStage = lifePathReducer(reducedDay + reducedMonth);
 
   const secondStage = lifePathReducer(reducedDay + reducedYear);
@@ -225,9 +240,9 @@ export async function POST(req: NextRequest) {
       ? thirdStage
       : fourthStage;
 
-  // const stagesString = `1st stage 0-${first}, 2nd stage ${
-  //   first + 1
-  // }-${second}, 3rd stage ${second + 1}-${third}, 4th stage ${third + 1}+`;
+  const stagesString = `1st stage 0-${first}, 2nd stage ${
+    first + 1
+  }-${second}, 3rd stage ${second + 1}-${third}, 4th stage ${third + 1}+`;
 
   const lifePathCompatibility =
     numberCompatibilityMap[
@@ -310,7 +325,6 @@ export async function POST(req: NextRequest) {
           isImpureMasterNumber,
           partialEnergyUnreduced: day as NumberEnergy,
           partialEnergy: reducedDay,
-          lifeStage,
           personalYear,
           lifePathCompatibility,
           dayCompatibility,
@@ -329,6 +343,22 @@ export async function POST(req: NextRequest) {
           easternZodiacCurrentYear: easternZodiacCurrentYear.sign,
           easternZodiacNextYear: easternZodiacNextYear.sign,
         },
+        additional: body.includeAdditional
+          ? {
+              day,
+              reducedMonth,
+              reducedYear,
+              lifePathWithoutReducingDay,
+              attitudeNumber,
+              universalMonth,
+              personalMonth,
+              lifeStage,
+              currentAge,
+              lifePathStageNumber,
+              stagesString,
+              tropicalSign: astrolabe.sign,
+            }
+          : undefined,
       },
       { status: 200 }
     );

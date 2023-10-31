@@ -2,6 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import CompleteReading from "../../components/CompleteReading";
 import config from "../../config";
 import User from "../../models/User";
 
@@ -45,9 +46,7 @@ export default async function Dashboard() {
           Voltar
         </Link>
       </div>
-      <div className="flex">
-        <h1>test</h1>
-      </div>
+      <CompleteReading />
     </main>
   );
 }
