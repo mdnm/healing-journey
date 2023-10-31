@@ -666,7 +666,7 @@ const EasternAstrologyReading = ({
         Próximo ano {zodiac.easternZodiacNextYear} (
         {nextYearEnergy === "desarmônico" ? (
           <div className="indicator">
-            <span className="indicator-item badge py-6 badge-error">!!!</span>
+            <span className="indicator-item badge badge-error">!!!</span>
             <span>{nextYearEnergy}</span>
           </div>
         ) : (
