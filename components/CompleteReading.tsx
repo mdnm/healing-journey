@@ -173,7 +173,7 @@ const NumerologyReading = ({
   return (
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
-        Caminho de vida: {numerology.lifePath}{" "}
+        Caminho de vida:{" "}
         {numerology.lifePathUnreduced !== numerology.lifePath
           ? `${numerology.lifePathUnreduced}/${numerology.lifePath}`
           : numerology.lifePath}{" "}
@@ -181,7 +181,7 @@ const NumerologyReading = ({
           `Impuro, vibrará mais como ${impureMasterNumberReduced}`}
       </p>
       <p className="text-lg text-center">
-        Energia parcial (do dia): {numerology.partialEnergy}
+        Energia parcial (do dia):{" "}
         {numerology.partialEnergyUnreduced !== numerology.partialEnergy
           ? `${numerology.partialEnergyUnreduced}/${numerology.partialEnergy}`
           : numerology.partialEnergy}
@@ -196,14 +196,14 @@ const NumerologyReading = ({
             <div className="flex flex-wrap gap-2">
               {lifePathInfoMap[impureMasterNumberReduced].positiveQualities.map(
                 (quality) => (
-                  <span key={quality} className="badge py-6 badge-success">
+                  <span key={quality} className="badge badge-success">
                     {quality}
                   </span>
                 )
               )}
               {lifePathInfoMap[impureMasterNumberReduced].negativeQualities.map(
                 (quality) => (
-                  <span key={quality} className="badge py-6 badge-error">
+                  <span key={quality} className="badge badge-error">
                     {quality}
                   </span>
                 )
