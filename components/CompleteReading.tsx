@@ -61,7 +61,7 @@ export default function CompleteReading() {
   };
 
   console.log({
-    additional: reading.additional,
+    additional: reading?.additional,
   });
 
   return (
