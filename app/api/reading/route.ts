@@ -72,6 +72,10 @@ export type ReadingResponseType = {
     universalMonth: NumberEnergy;
     personalMonth: NumberEnergy;
     lifeStage: NumberEnergy;
+    firstStage: NumberEnergy;
+    secondStage: NumberEnergy;
+    thirdStage: NumberEnergy;
+    fourthStage: NumberEnergy;
     currentAge: NumberEnergy;
     lifePathStageNumber: NumberEnergy;
     stagesString: string;
@@ -353,6 +357,10 @@ export async function POST(req: NextRequest) {
               universalMonth,
               personalMonth,
               lifeStage,
+              firstStage,
+              secondStage,
+              thirdStage,
+              fourthStage,
               currentAge,
               lifePathStageNumber,
               stagesString,
