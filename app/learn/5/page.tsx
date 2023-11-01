@@ -99,10 +99,6 @@ const Learn = () => {
           falham a longo prazo sob a energia um do outro
         </li>
         <li>Alma Gêmea Secreta/Salvadora: 6</li>
-        <li>
-          Melhor horário para ter relações sexuais visando criar uma família é
-          entre 11:55pm-12:05pm em um dia 5 e 6
-        </li>
       </ul>
 
       <h2 className="font-bold text-xl my-3 text-center">
