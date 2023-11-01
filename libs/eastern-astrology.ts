@@ -33,7 +33,7 @@ export type AnimalHour =
   | "13:00 - 15:00 (14:59)"
   | "15:00 - 17:00 (16:59)"
   | "17:00 - 19:00 (18:59)"
-  | "18:00 - 21:00 (20:59)"
+  | "19:00 - 21:00 (20:59)"
   | "21:00 - 23:00 (22:59)";
 
 export const ANIMAL_HOURS: readonly AnimalHour[] = Object.freeze([
@@ -47,7 +47,7 @@ export const ANIMAL_HOURS: readonly AnimalHour[] = Object.freeze([
   "13:00 - 15:00 (14:59)",
   "15:00 - 17:00 (16:59)",
   "17:00 - 19:00 (18:59)",
-  "18:00 - 21:00 (20:59)",
+  "19:00 - 21:00 (20:59)",
   "21:00 - 23:00 (22:59)",
 ]);
 
@@ -517,7 +517,7 @@ export const easternRulingHourMap: Record<Animal, AnimalHour> = {
   Bode: "13:00 - 15:00 (14:59)",
   Macaco: "15:00 - 17:00 (16:59)",
   Galo: "17:00 - 19:00 (18:59)",
-  Cão: "18:00 - 21:00 (20:59)",
+  Cão: "19:00 - 21:00 (20:59)",
   Porco: "21:00 - 23:00 (22:59)",
 };
 
