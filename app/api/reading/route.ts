@@ -80,6 +80,7 @@ export type ReadingResponseType = {
     lifePathStageNumber: NumberEnergy;
     stagesString: string;
     tropicalSign: string;
+    easternZodiacMonth: Zodiac;
   };
 };
 
@@ -365,6 +366,7 @@ export async function POST(req: NextRequest) {
               lifePathStageNumber,
               stagesString,
               tropicalSign: astrolabe.sign,
+              easternZodiacMonth,
             }
           : undefined,
       },

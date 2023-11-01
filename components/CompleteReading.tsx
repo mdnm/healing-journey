@@ -151,7 +151,7 @@ export default function CompleteReading() {
                 <GematriaReading gematria={reading.gematria} />
               )}
               {selectedTab === "eastern-zodiac" && (
-                <EasternAstrologyReading zodiac={reading.zodiac} />
+                <EasternAstrologyReading zodiac={reading.zodiac} hour={hour} />
               )}
             </div>
           </>
