@@ -284,7 +284,6 @@ const GematriaReading = ({
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
         Energia da primeira letra (a mais impactante):{" "}
-        {gematria.firstLetterLowercaseValueReduced}
         {gematria.firstLetterLowercaseValue !==
         gematria.firstLetterLowercaseValueReduced
           ? `${gematria.firstLetterLowercaseValue}/${gematria.firstLetterLowercaseValueReduced}`
@@ -298,7 +297,7 @@ const GematriaReading = ({
           : gematria.firstLetterUppercaseValueReduced}
       </p>
       <p className="text-lg text-center">
-        Energia do nome: {gematria.lowerCaseNameValueReduced}
+        Energia do nome:
         {gematria.lowerCaseNameValue !== gematria.lowerCaseNameValueReduced
           ? `${gematria.lowerCaseNameValue}/${gematria.lowerCaseNameValueReduced}`
           : gematria.lowerCaseNameValueReduced}
@@ -424,7 +423,7 @@ const EasternAstrologyReading = ({
     <div className="py-4 flex flex-col items-center gap-2 w-full bg-white rounded-md">
       <p className="font-bold text-xl text-center">
         Signo {zodiac.easternZodiacYear.sign} {signEmoji} - (energia número{" "}
-        {zodiac.easternZodiacYear.numberEnergy})
+        {zodiac.easternZodiacYear.numberEnergy}){" "}
         {zodiac.easternZodiacYear.element} {elementEmoji}
       </p>
       <p className="text-lg text-center">
