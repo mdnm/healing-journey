@@ -80,6 +80,8 @@ export type ReadingResponseType = {
     lifePathStageNumber: NumberEnergy;
     stagesString: string;
     tropicalSign: string;
+    easternZodiacHour: Zodiac;
+    easternZodiacDay: Zodiac;
     easternZodiacMonth: Zodiac;
   };
 };
@@ -136,6 +138,9 @@ export async function POST(req: NextRequest) {
 
   const easternZodiacHour = translateMandarimZodiac(
     astrolabe.rawDates.chineseDate.hourly
+  );
+  const easternZodiacDay = translateMandarimZodiac(
+    astrolabe.rawDates.chineseDate.daily
   );
   const easternZodiacMonth = translateMandarimZodiac(
     astrolabe.rawDates.chineseDate.monthly
@@ -367,6 +372,8 @@ export async function POST(req: NextRequest) {
               stagesString,
               tropicalSign: astrolabe.sign,
               easternZodiacMonth,
+              easternZodiacHour,
+              easternZodiacDay,
             }
           : undefined,
       },
