@@ -35,7 +35,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
 
       {/* Add Whatsapp Button */}
       <a
-        href="https://wa.me/393668717788"
+        href="https://wa.me/393668717788?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20do%20NumEros."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50"
