@@ -61,11 +61,9 @@ const RefundPolicy = () => {
 
 Você tem o direito de desistir da sua compra e solicitar um reembolso total dentro de um prazo de 7 dias após o recebimento do produto, sem necessidade de justificar o motivo.
 
-Para iniciar o processo de reembolso, por favor, entre em contato conosco pelo e-mail contato@mg.numerosapp.com ou Whatsapp com o seu pedido. As instruções de como proceder com a devolução do produto e o reembolso serão fornecidas.
+Para iniciar o processo de reembolso, por favor, entre em contato conosco pelo e-mail contato@mg.numerosapp.com ou Whatsapp com o seu pedido. As instruções de como proceder com o reembolso serão fornecidas.
 
-Agradecemos a sua escolha pelo NumEros e nos comprometemos a garantir a sua satisfação.
-
-Lembre-se de que esta é uma política de reembolso simplificada e é aconselhável que seja revisada por um profissional jurídico para garantir a conformidade com as leis e regulamentos de comércio eletrônico do Brasil.`}
+Agradecemos a sua escolha pelo NumEros e nos comprometemos a garantir a sua satisfação.`}
         </pre>
       </div>
     </main>
