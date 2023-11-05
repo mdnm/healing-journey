@@ -56,6 +56,7 @@ export const createCheckout = async ({
       tax_id_collection: { enabled: true },
       client_reference_id: clientReferenceId,
       payment_intent_data: { setup_future_usage: "on_session" },
+      phone_number_collection: { enabled: true },
       line_items: [
         {
           price: priceId,
