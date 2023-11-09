@@ -7,7 +7,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.numerosapp.com
+Host: https://healing-journey.vercel.app
 
 # Sitemaps
-Sitemap: https://www.numerosapp.com/sitemap.xml
+Sitemap: https://healing-journey.vercel.app/sitemap.xml

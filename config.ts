@@ -7,7 +7,7 @@ const config = {
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription: "Create a perfect and healthy routine that works for you.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "www.numerosapp.com",
+  domainName: "healing-journey.vercel.app",
   stripe: {
     // Create multiple plans in your Stripe dashboard, then add them here. You can add as many plans as you want, just make sure to add the priceId
     plans: [
