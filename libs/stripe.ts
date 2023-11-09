@@ -63,7 +63,7 @@ export const createCheckout = async ({
           quantity: 1,
         },
       ],
-      locale: "pt-BR",
+      locale: "en",
       discounts: couponId
         ? [
             {
