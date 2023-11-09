@@ -3,18 +3,11 @@ import { ConfigProps } from "./types/config";
 
 const config = {
   // REQUIRED
-  appName: "NumEros",
+  appName: "Healing Journey",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
-  appDescription:
-    "Descubra o que os números dizem sobre você e por que algumas coisas parecem não dar certo.",
+  appDescription: "Create a perfect and healthy routine that works for you.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
   domainName: "www.numerosapp.com",
-  crisp: {
-    // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
-    id: "c9b43bf6-fe78-4830-a385-6d7e1aa0d8bd",
-    // Hide Crisp by default, except on route "/". Crisp is toggled with <ButtonSupport/>. If you want to show Crisp on every routes, just remove this below
-    onlyShowOnRoutes: ["/"],
-  },
   stripe: {
     // Create multiple plans in your Stripe dashboard, then add them here. You can add as many plans as you want, just make sure to add the priceId
     plans: [
@@ -96,13 +89,13 @@ const config = {
     // subdomain to use when sending emails, if you don't have a subdomain, just remove it. Highly recommended to have one (i.e. mg.yourdomain.com or mail.yourdomain.com)
     subdomain: "mg",
     // REQUIRED — Email 'From' field to be used when sending magic login links
-    fromNoReply: `NumEros <contato@mg.numerosapp.com>`,
+    fromNoReply: `Healing Journey <healingjourneylife@gmail.com>`,
     // REQUIRED — Email 'From' field to be used when sending other emails, like abandoned carts, updates etc..
-    fromAdmin: `Mateus do NumEros <contato@mg.numerosapp.com>`,
+    fromAdmin: `Giovana from Healing Journey <healingjourneylife@gmail.com>`,
     // Email shown to customer if need support. Leave empty if not needed => if empty, set up Crisp above, otherwise you won't be able to offer customer support."
-    supportEmail: "contato@mg.numerosapp.com",
+    supportEmail: "healingjourneylife@gmail.com",
     // When someone replies to supportEmail sent by the app, forward it to the email below (otherwise it's lost). If you set supportEmail to empty, this will be ignored.
-    forwardRepliesTo: "mateus.nardo@migii.com.br",
+    forwardRepliesTo: "healingjourneylife@gmail.com",
   },
   colors: {
     // REQUIRED — The DaisyUI theme to use (added to _document.js). Leave blank for default (light & dark mode). If you any other theme than light/dark, you need to add it in config.tailwind.js in daisyui.themes.

@@ -26,7 +26,7 @@ import Link from "next/link";
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Termos e Condições | ${config.appName}`,
+  title: `Terms of Service | ${config.appName}`,
   canonicalUrlRelative: "/tos",
 });
 
@@ -47,54 +47,54 @@ const TOS = () => {
               clipRule="evenodd"
             />
           </svg>
-          Voltar
+          Back
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Termos e Condições {config.appName}
+          Terms of Service {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Atualizado Em: 8 de Outubro, 2023
+          {`Date: 9 November, 2023
 
-1. Introdução
+1. Introduction
 
-Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Ao acessar e usar nosso site, localizado em https://www.numerosapp.com, você concorda em cumprir e estar vinculado aos seguintes termos e condições. Se você não concordar com estes termos, por favor, não use nosso site.
+Welcome to Healing Journey. By accessing our website, https://healingjourney.com, and using our routine builder questionnaire, you agree to the following terms and conditions. If you do not agree to these terms, please do not use our services.
 
-2. Propriedade
+2. Ownership
 
-Ao comprar uma leitura do NumEros, você é o proprietário das informações fornecidas na leitura. No entanto, você não tem o direito de revender, redistribuir ou usar as informações para fins comerciais sem o consentimento expresso por escrito do NumEros.
+Upon completing the questionnaire on Healing Journey, you retain ownership of the information you provide. However, you are not permitted to resell or commercially exploit the information.
 
-3. Coleta de Dados do Usuário
+3. User Data Collection
 
-Para fornecer nossos serviços, coletamos os seguintes dados pessoais:
+We collect the following personal data to facilitate the creation of your personalized routine:
 
-Nome
+Name
 Email
-Data de nascimento
-Hora de nascimento
-Informações de pagamento
-Seus dados são coletados com o máximo cuidado e são protegidos de acordo com nossa política de privacidade, que pode ser encontrada em https://www.numerosapp.com/privacy-policy.
+Habits information
+4. Non-Personal Data Collection
 
-4. Coleta de Dados Não Pessoais
+We use web cookies to improve your experience on our website and for analytical purposes.
 
-Usamos cookies da web para melhorar sua experiência de usuário e coletar dados não pessoais para fins de análise e otimização do site.
+5. Contact Information
 
-5. Informações de Contato
+Should you have any questions or concerns, please contact us at healingjourneylife@gmail.com.
 
-Para quaisquer dúvidas, preocupações ou feedback sobre nossos serviços, entre em contato conosco pelo e-mail contato@mg.numerosapp.com.
+6. Governing Law
 
-6. Lei Aplicável
+These terms are governed by the laws of Italy and shall be interpreted accordingly. Any disputes will be resolved under Italian jurisdiction.
 
-Estes termos e condições são regidos e interpretados de acordo com as leis do Brasil. Quaisquer disputas decorrentes destes termos estarão sujeitas à jurisdição exclusiva dos tribunais do Brasil.
+7. Updates to the Terms
 
-7. Atualizações dos Termos
+We may update these terms from time to time. Users will be notified of any changes via email and are advised to review the Terms periodically.
 
-Reservamo-nos o direito de atualizar, alterar ou modificar estes termos a qualquer momento. Quando as alterações forem feitas, os usuários serão notificados por e-mail. Seu uso contínuo de nosso site após a implementação de qualquer alteração constitui sua aceitação das mudanças.
+8. Privacy Policy
 
-Agradecemos por escolher o NumEros. Valorizamos sua confiança e estamos comprometidos em fornecer o melhor serviço possível.`}
+For information on how we handle your personal data, please refer to our Privacy Policy at https://healingjourney.com/privacy-policy.
+
+Thank you for choosing Healing Journey to support your personal development.`}
         </pre>
       </div>
     </main>

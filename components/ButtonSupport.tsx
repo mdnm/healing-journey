@@ -13,7 +13,7 @@ const ButtonSupport = () => {
     } else if (config.mailgun?.supportEmail) {
       // open default email client in new window with "need help with ${config.appName}" as subject
       window.open(
-        `mailto:${config.mailgun.supportEmail}?subject=Ajuda com ${config.appName}`,
+        `mailto:${config.mailgun.supportEmail}?subject=Help with ${config.appName}`,
         "_blank"
       );
     }
@@ -24,8 +24,8 @@ const ButtonSupport = () => {
       className="btn btn-sm"
       onClick={handleClick}
       data-tooltip-id="tooltip"
-      data-tooltip-content="Conversar com o suporte"
-      title="Conversar com o suporte"
+      data-tooltip-content="Contact us"
+      title="Contact us"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ const ButtonSupport = () => {
           clipRule="evenodd"
         />
       </svg>
-      Suporte
+      Support
     </button>
   );
 };

@@ -26,7 +26,7 @@ import Link from "next/link";
 // Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Política de Privacidade | ${config.appName}`,
+  title: `Privacy Policy | ${config.appName}`,
   canonicalUrlRelative: "/privacy-policy",
 });
 
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
               clipRule="evenodd"
             />
           </svg>{" "}
-          Voltar
+          Back
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
           Política de Privacidade de {config.appName}
@@ -57,46 +57,46 @@ const PrivacyPolicy = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Atualizado Em: 8 de Outubro, 2023
+          {`Date: 9 November, 2023
 
-1. Introdução
+1. Introduction
 
-Bem-vindo ao NumEros, um aplicativo de leitura de numerologia e astrologia oriental. Esta política de privacidade descreve como coletamos, usamos e protegemos suas informações pessoais. Ao usar nosso site, localizado em https://www.numerosapp.com, você concorda com a coleta e uso de informações de acordo com esta política.
+This Privacy Policy outlines how Healing Journey, accessible at https://healingjourney.com, collects, uses, and protects your personal information. By using our website and services, you consent to the data practices described in this policy.
 
-2. Coleta de Dados do Usuário
+2. Data Collection
 
-Coletamos os seguintes dados pessoais para fornecer e melhorar nossos serviços:
+We collect the following personal information:
 
-Nome
+Name
 Email
-Data de nascimento
-Hora de nascimento
-Informações de pagamento
-3. Coleta de Dados Não Pessoais
+Habits information
+This data is essential for the personalization of your routine building experience.
 
-Usamos cookies da web para melhorar sua experiência de usuário e coletar dados não pessoais para fins de análise e otimização do site.
+3. Non-Personal Data Collection
 
-4. Finalidade da Coleta de Dados
+Our website uses cookies to enhance your browsing experience and for analytical purposes.
 
-Os dados pessoais que coletamos são usados principalmente para processamento de pedidos. Isso garante que possamos entregar nossos serviços a você de forma eficiente e eficaz.
+4. Purpose of Data Collection
 
-5. Compartilhamento de Dados
+The personal data collected is used solely for order processing and the personalization of our services.
 
-Valorizamos sua privacidade. Não compartilhamos, vendemos ou distribuímos seus dados pessoais para terceiros.
+5. Data Sharing
 
-6. Privacidade Infantil
+Healing Journey does not share your personal data with any third parties.
 
-Não coletamos conscientemente informações pessoais de crianças menores de 13 anos. Se você é pai ou responsável e acredita que seu filho nos forneceu informações pessoais, entre em contato conosco imediatamente.
+6. Children's Privacy
 
-7. Atualizações da Política de Privacidade
+Our services do not address anyone under the age of 13. We do not knowingly collect personal identifiable information from children.
 
-Reservamo-nos o direito de atualizar ou alterar nossa política de privacidade a qualquer momento. Quando as alterações forem feitas, os usuários serão notificados por e-mail. Seu uso contínuo de nosso site após a implementação de qualquer alteração constitui sua aceitação das mudanças.
+7. Updates to the Privacy Policy
 
-8. Informações de Contato
+We reserve the right to modify this privacy policy at any time. All updates will be communicated to users via email.
 
-Para quaisquer dúvidas, preocupações ou feedback sobre nossas práticas de privacidade, entre em contato conosco pelo e-mail contato@mg.numerosapp.com.
+8. Contact Information
 
-Agradecemos por escolher o NumEros. Estamos comprometidos em proteger sua privacidade e garantir que suas informações pessoais sejam tratadas com cuidado e respeito.`}
+For any questions or comments regarding this privacy policy, please contact us at healingjourneylife@gmail.com.
+
+Thank you for trusting Healing Journey with your personal development journey.`}
         </pre>
       </div>
     </main>

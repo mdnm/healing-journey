@@ -10,18 +10,12 @@ import { useEffect, useState } from "react";
 const links: {
   href: string;
   label: string;
+  openInNewTab?: boolean;
 }[] = [
   {
-    href: "/learn",
-    label: "Aprenda mais",
-  },
-  {
-    href: "/#reading",
-    label: "Leitura Básica",
-  },
-  {
-    href: "/pricing",
-    label: "Leitura Avançada",
+    href: `mailto:${config.mailgun.supportEmail}`,
+    label: "Contact Us",
+    openInNewTab: true,
   },
   {
     href: "/#faq",
@@ -31,7 +25,7 @@ const links: {
 
 const CTA = () => (
   <Link href={"/#reading"} className="btn btn-primary">
-    Quero uma leitura
+    Get Your Planner
   </Link>
 );
 
@@ -62,7 +56,7 @@ const Header = () => {
             <Image
               src={logo}
               alt={`${config.appName} logo`}
-              className="w-8"
+              className="w-14"
               placeholder="blur"
               priority={true}
             />
@@ -102,6 +96,7 @@ const Header = () => {
               key={link.href}
               className="link link-hover"
               title={link.label}
+              target={link.openInNewTab ? "_blank" : undefined}
             >
               {link.label}
             </Link>

@@ -13,130 +13,73 @@ interface FAQItemProps {
 
 const faqList: FAQItemProps[] = [
   {
-    question: "O quê é numerologia?",
+    question: "What are Holistic Practices?",
     answer: (
       <div className="space-y-2 leading-relaxed">
         <p>
-          A numerologia é uma ciência oculta que estuda a influência dos números
-          em nossa vida.
+          &quot;The whole is greater than the sum of its parts&quot; perfectly
+          captures the essence of holism, as it highlights the interconnections
+          among the mind, body, and environment.
         </p>
         <p>
-          Estamos num mundo onde tudo é energia/frequência e pode ser reduzido a
-          um número. A numerologia pode ser aplicada em qualquer coisa (pessoas,
-          animais, lugares, objetos). Porém a energia não é definitiva, tudo
-          gira em torno de probabilidades e o universo possui outras leis que
-          nos afetam. A ideia é utilizar das probabilidades ao nosso favor e
-          cumprir nossa missão nessa vida.
+          For instance, holistic recognition initially identifies the primary
+          daily challenge before stepping back to comprehend the
+          individual&apos;s life in its entirety, recognizing its patterns.
         </p>
         <p>
-          Através de cálculos matemáticos em base na sua data de nascimento e
-          nome, é possível descobrir características da personalidade, talentos,
-          pontos fortes e fracos, desafios, habilidades, tendências,
-          oportunidades, energias opostas, etc.
-        </p>
-        <div>
-          A numerologia não é:
-          <ul className="list-disc list-inside">
-            <li>Magia</li>
-            <li>Adivinhação</li>
-            <li>Superstição</li>
-          </ul>
-        </div>
-      </div>
-    ),
-  },
-  {
-    question: "Qual numerologia é aplicada aqui?",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        Existem diversas vertentes da numerologia, e aqui é aplicada a
-        numerologia pitagórica com modificações baseadas em estudos empíricos e
-        de outros numerólogos.
-      </div>
-    ),
-  },
-  {
-    question: "O quê é astrologia oriental?",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        <p>
-          A astrologia ocidental usa o calendario solar e é baseada no zodíaco
-          tropical, que considera a posição do sol e outros astros em relação a
-          terra. Já a astrologia oriental (chinesa ou vietnamita por exemplo)
-          usa o calendario lunissolar (lua e sol) e é baseada em animais e
-          elementos do nosso planeta.
-        </p>
-
-        <p>
-          Através da sua data e hora de nascimento, é possível descobrir o seu
-          características da personalidade, talentos, pontos fortes e fracos,
-          desafios, habilidades, tendências, oportunidades, energias opostas,
-          etc.
-        </p>
-
-        <div>
-          A astrologia oriental não é:
-          <ul className="list-disc list-inside">
-            <li>Magia</li>
-            <li>Adivinhação</li>
-            <li>Superstição</li>
-          </ul>
-        </div>
-      </div>
-    ),
-  },
-  {
-    question: "Qual astrologia oriental é aplicada aqui?",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        Existem diversas vertentes da astrologia oriental, e aqui é aplicada a
-        astrologia vietnamita com modificações baseadas em estudos empíricos e
-        de outros astrólogos.
-      </div>
-    ),
-  },
-  {
-    question: "Isso realmente funciona?",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        <p>
-          Múltiplas energias nos afetam diariamente e nosso universo possuí
-          diversas Leis. Uma delas é a lei do livre arbítrio, que te permite
-          fazer suas próprias escolhas (e arcar com as consequências). Outra é a
-          lei do eletromagnetismo/atração/karma/etc. que diz que você atrai o
-          que você emite/é.
+          Each individual faces unique struggles, both physical and mental, and
+          has their own attractions to certain practices and beliefs.
+          Understanding these personal nuances is crucial in selecting habits
+          that will genuinely enhance their health and happiness.
         </p>
         <p>
-          Em resumo, numerologia e astrologia são algumas ferramentas que te
-          ajudam a entender as tendencias do universo. Não é porque você nasceu
-          no dia 28 ou é um caminho de vida 28/1 que você será bilionário. Sem
-          usar sua energia (trabalhar, estudar, fazer o bem, etc) você
-          dificilmente terá sucesso contínuo.
-        </p>
-        <p>
-          A numerologia e astrologia te fazem entender suas tendencias pessoais
-          e as do universo e te ajudar a tomar decisões melhores, mas,{" "}
-          <span className="font-bold">
-            não são uma receita de bolo ou magia.
-          </span>
+          This approach is preferable to imposing generic activities that, while
+          intended to help, often fail to effect change and can sometimes
+          exacerbate the situation.
         </p>
       </div>
     ),
   },
   {
-    question: "Posso pegar um reembolso?",
+    question: "What is the foundation for creating routines?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        Sim! Você pode pedir um reembolso em até 7 dias depois da sua compra.
-        Contate-nos email.
+        <p>
+          I combined 6 years of experience in practicing and applying yoga,
+          Ayurveda, NLP (neuro-linguistic programming), Reiki, among other
+          studies and practices tested by myself and with my yoga students.
+        </p>
       </div>
     ),
   },
   {
-    question: "Tenho uma dúvida que não está aqui",
+    question: "Are there any contraindications?",
     answer: (
-      <div className="space-y-2 leading-relaxed">Legal, nos envie um email</div>
+      <div className="space-y-2 leading-relaxed">
+        <p>
+          The recommendations include habits that anyone can be perform. For
+          example the best time to exercise.
+        </p>
+        <p>
+          If you have any questions or concerns about your specific condition or
+          disability, consult a healthcare professional before carrying out the
+          practices.
+        </p>
+      </div>
     ),
+  },
+  {
+    question: "Can I get a refund?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        Yes! You can get a refund up to 7 days after making a purchase of any
+        product/service. Contact us via email or Instagram.
+      </div>
+    ),
+  },
+  {
+    question: "I have a question not listed here",
+    answer: <div className="space-y-2 leading-relaxed">Cool, email us</div>,
   },
 ];
 
@@ -207,7 +150,7 @@ const FAQ = () => {
         <div className="flex flex-col text-left basis-1/2">
           <p className="inline-block font-semibold text-primary mb-4">FAQ</p>
           <p className="sm:text-4xl text-3xl font-extrabold text-base-content">
-            Perguntas Frequentes
+            Frequently Asked Questions
           </p>
         </div>
 

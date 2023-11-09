@@ -131,7 +131,7 @@ export default function Error({
         </div>
 
         <p className="font-medium md:text-xl md:font-semibold">
-          Algo não está certo 🥲
+          Something is wrong 🥲
         </p>
 
         <p className="text-red-500">{error?.message}</p>
@@ -150,7 +150,7 @@ export default function Error({
                 clipRule="evenodd"
               />
             </svg>
-            Atualizar
+            Refresh
           </button>
           <ButtonSupport />
           <Link href="/" className="btn btn-sm">

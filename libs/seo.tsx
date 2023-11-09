@@ -101,27 +101,27 @@ export const renderSchemaTags = () => {
           url: `https://${config.domainName}/`,
           author: {
             "@type": "Person",
-            name: "Mateus",
+            name: "Giovana",
           },
-          datePublished: "2023-10-08",
+          datePublished: "2023-11-11",
           applicationCategory: "EducationalApplication",
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            ratingCount: "12",
-          },
-          offers: [
-            {
-              "@type": "Offer",
-              price: "28.00",
-              priceCurrency: "BRL",
-            },
-            {
-              "@type": "Offer",
-              price: "107.00",
-              priceCurrency: "BRL",
-            },
-          ],
+          // aggregateRating: {
+          //   "@type": "AggregateRating",
+          //   ratingValue: "4.8",
+          //   ratingCount: "12",
+          // },
+          // offers: [
+          //   {
+          //     "@type": "Offer",
+          //     price: "28.00",
+          //     priceCurrency: "BRL",
+          //   },
+          //   {
+          //     "@type": "Offer",
+          //     price: "107.00",
+          //     priceCurrency: "BRL",
+          //   },
+          // ],
         }),
       }}
     ></script>
