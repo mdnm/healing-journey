@@ -527,10 +527,10 @@ const readingMap: Record<string, React.JSX.Element> = {
         helping remove excess skin oil.
       </p>
       <p>
-        To enhance motivation upon waking, avoid going to bed too late. Aiming
-        for 7-8 hours of sleep and allowing for afternoon naps can be
-        beneficial. Consistency in your wake-up time is helpful, and splashing
-        your face with cold water can help you wake up feeling refreshed.
+        To enhance motivation upon waking, avoid going to bed too late.
+        Don&apos;t sleep for 7-8 hours and don&apos;t take afternoon.
+        Consistency in your wake-up time is helpful, and splashing your face
+        with cold water can help you wake up feeling refreshed.
       </p>
       <p>
         If you find yourself resting too much, you may need to encourage
