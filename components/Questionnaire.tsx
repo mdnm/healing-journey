@@ -625,7 +625,7 @@ export default function Questionnaire() {
     try {
       await apiClient.post("/save-reading", {
         ...formData,
-        type,
+        type: typeMap[type],
       });
       setReading(type);
     } catch (error) {
