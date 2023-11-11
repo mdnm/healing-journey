@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import apiClient from "../libs/api";
 
 type FormData = {
   name: string;
@@ -566,6 +567,7 @@ export default function Questionnaire() {
   const [reading, setReading] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData | null>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -574,12 +576,13 @@ export default function Questionnaire() {
     });
   };
 
-  const handleReading = () => {
+  const handleReading = async () => {
     if (!formData.email) {
       toast.error("Please fill in your email");
       return;
     }
 
+    setIsLoading(true);
     const firstFiveAnswers = [
       formData?.firstQuestionAnswer,
       formData?.secondQuestionAnswer,
@@ -617,7 +620,19 @@ export default function Questionnaire() {
       lastFiveAnswersMostFrequent
     ).sort((a, b) => b[1] - a[1]);
 
-    setReading(`${firstMostFrequent[0]}/${secondMostFrequent[0]}`);
+    const type = `${firstMostFrequent[0]}/${secondMostFrequent[0]}`;
+
+    setReading(type);
+    try {
+      await apiClient.post("/save-reading", {
+        ...formData,
+        type,
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const steps = [
@@ -719,16 +734,10 @@ export default function Questionnaire() {
                 onClick={() => setActiveStep((curr) => curr - 1)}
                 disabled={activeStep === 0}
               >
-                {/* {isLoading && (
-            <span className="loading loading-spinner loading-xs"></span>
-          )} */}
                 Back
               </button>
               {activeStep < steps.length - 1 && (
                 <button className="btn btn-primary" onClick={handleNextStep}>
-                  {/* {isLoading && (
-            <span className="loading loading-spinner loading-xs"></span>
-          )} */}
                   Next
                 </button>
               )}
@@ -736,11 +745,11 @@ export default function Questionnaire() {
                 <button
                   className="btn btn-secondary"
                   onClick={handleReading}
-                  // disabled={isLoading}
+                  disabled={isLoading}
                 >
-                  {/* {isLoading && (
-            <span className="loading loading-spinner loading-xs"></span>
-          )} */}
+                  {isLoading && (
+                    <span className="loading loading-spinner loading-xs"></span>
+                  )}
                   Get Your Reading
                 </button>
               )}
