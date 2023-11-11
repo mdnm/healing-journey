@@ -622,12 +622,12 @@ export default function Questionnaire() {
 
     const type = `${firstMostFrequent[0]}/${secondMostFrequent[0]}`;
 
-    setReading(type);
     try {
       await apiClient.post("/save-reading", {
         ...formData,
         type,
       });
+      setReading(type);
     } catch (error) {
       console.log(error);
     } finally {
